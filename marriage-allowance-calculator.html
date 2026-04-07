@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Marriage Allowance Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free marriage allowance calculator for 2025/26. Check eligibility and calculate the £252 annual tax saving from transferring 10% of the personal allowance to your spouse or civil partner.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Marriage Allowance Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Check if you qualify for marriage allowance and calculate your £252 annual tax saving. Free UK calculator for 2025/26.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .eligibility-result {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .eligibility-result.visible { display: flex; }
+
+    .elig-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+      font-weight: 700;
+    }
+    .elig-badge.eligible   { background: var(--success-bg); color: var(--success); border: 1.5px solid var(--success-border); }
+    .elig-badge.ineligible { background: var(--error-bg); color: var(--error); border: 1.5px solid var(--error-border); }
+    .elig-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .elig-reason {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 12px 16px;
+      background: var(--bg-surface-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link active">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item active" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#income-tax">Income Tax</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Marriage Allowance Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Marriage Allowance Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        Marriage Allowance lets one spouse or civil partner transfer 10% of their personal allowance 
+        to the other, saving up to £252 in tax per year. It applies where one partner earns below the 
+        personal allowance threshold and the other is a basic rate taxpayer. It sounds simple, but many 
+        eligible couples have never claimed it, and HMRC allows backdated claims for up to four previous 
+        tax years, meaning unclaimed allowances could be worth over £1,000 as a lump sum. Enter both 
+        incomes below to check eligibility and see the exact saving.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant eligibility check
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Backdated claim value shown
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Married couples and civil partners
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Marriage Allowance Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 · Married couples and civil partners</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field-row fade-in">
+              <div class="field">
+                <label class="field-label" for="income-lower">Lower earner's income</label>
+                <span class="field-hint">Annual gross income of the partner who earns less</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="income-lower" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="income-higher">Higher earner's income</label>
+                <span class="field-hint">Annual gross income of the partner who earns more</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="income-higher" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Check eligibility
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <!-- Eligibility badge -->
+              <div class="eligibility-result visible" id="elig-result">
+                <div class="elig-badge" id="elig-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="elig-icon"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span id="elig-text">Eligible</span>
+                </div>
+                <div class="elig-reason" id="elig-reason"></div>
+              </div>
+
+              <!-- Saving breakdown (only shown when eligible) -->
+              <div id="saving-section" style="display:none">
+
+                <div class="result-hero" style="margin-top: 16px;">
+                  <div class="result-hero-label">Annual tax saving</div>
+                  <div class="result-hero-value" id="r-annual-saving">£252</div>
+                  <div class="result-hero-sub">£21 per month</div>
+                </div>
+
+                <div class="result-breakdown">
+                  <div class="result-row">
+                    <div class="result-label">Personal allowance transferred</div>
+                    <div class="result-value" id="r-transferred">£1,257</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">
+                      Lower earner's new allowance
+                      <span class="sublabel">Reduced by 10%</span>
+                    </div>
+                    <div class="result-value" id="r-lower-pa">£11,313</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">
+                      Higher earner's new allowance
+                      <span class="sublabel">Increased by 10%</span>
+                    </div>
+                    <div class="result-value positive" id="r-higher-pa">£13,827</div>
+                  </div>
+                  <div class="result-row total">
+                    <div class="result-label">Annual saving (20% of £1,257)</div>
+                    <div class="result-value accent" id="r-saving-2">£252</div>
+                  </div>
+                </div>
+
+                <!-- Backdated claims -->
+                <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Backdated claim potential</p>
+                <div class="result-breakdown">
+                  <div class="result-row">
+                    <div class="result-label">2025/26 (current year)</div>
+                    <div class="result-value positive">£252</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">2024/25</div>
+                    <div class="result-value positive">£252</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">2023/24</div>
+                    <div class="result-value positive">£252</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">2022/23</div>
+                    <div class="result-value positive">£252</div>
+                  </div>
+                  <div class="result-row total">
+                    <div class="result-label">Total if claiming from 2022/23</div>
+                    <div class="result-value accent">£1,008</div>
+                  </div>
+                </div>
+
+                <div class="result-notice">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <p>Apply directly through your HMRC Government Gateway account at <strong>gov.uk/marriage-allowance</strong>. The lower earner applies, not the higher earner. Backdated claims are paid as a lump sum tax rebate.</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How Marriage Allowance works</h2>
+        <div class="prose">
+          <p>
+            Marriage Allowance was introduced in 2015 to provide a modest tax break to couples where 
+            one partner does not use their full personal allowance. The logic is simple: if one person 
+            is not earning enough to use all of their £12,570 allowance, transferring part of it to 
+            their spouse lets the household pay less tax overall.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Who is eligible</h4>
+              <p>To qualify, you must be married or in a civil partnership (cohabiting couples do not qualify). The lower earner must have income below the personal allowance of £12,570. The higher earner must be a basic rate taxpayer, their income must be between £12,571 and £50,270. Neither partner can be a higher or additional rate taxpayer.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>What is transferred</h4>
+              <p>The lower earner transfers exactly 10% of their personal allowance to their partner. For 2025/26 this is £1,257 (10% of £12,570). The lower earner's personal allowance reduces to £11,313 and the higher earner's increases to £13,827. The higher earner then pays 20% less tax on the additional £1,257 of income that is now covered by their increased allowance, saving £252.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>How to apply</h4>
+              <p>The lower earner makes the application through HMRC's online service at gov.uk/marriage-allowance. You need both partners' National Insurance numbers. Once approved, the higher earner's tax code is updated to reflect the additional allowance. The application can also include backdated claims for up to four previous tax years.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Backdated claims</h4>
+              <p>If you were eligible in previous years but never claimed, you can backdate by up to four years. Claims covering 2022/23, 2023/24, 2024/25, and 2025/26 could total £1,008 paid as a lump sum. The lower earner still applies, and HMRC will adjust both partners' records accordingly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Death of a spouse:</strong> Marriage Allowance can be backdated following the death of a spouse, even where the surviving partner is now a higher rate taxpayer. HMRC allows claims for years in which both conditions were met, regardless of later changes in circumstance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can cohabiting couples claim Marriage Allowance?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>No. Marriage Allowance is only available to legally married couples and civil partners. Couples who live together but are not married or in a civil partnership are not eligible, regardless of how long they have been together or whether they share finances. This is one of the few remaining tax advantages that applies specifically to marriage and civil partnership in the UK tax system.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What happens if the lower earner's income increases above £12,570?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>You must cancel the Marriage Allowance if the lower earner's income rises above £12,570. Because the lower earner now needs their full personal allowance, transferring part of it would result in them paying more tax than they save. HMRC will adjust both partners' tax codes once you cancel. You can do this through your Government Gateway account. If your income fluctuates around the threshold from year to year, you can reapply in years where you qualify and cancel in years where you do not.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Does it matter who applies, me or my spouse?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. It must be the lower earner who applies, because they are the one giving up part of their personal allowance. The higher earner cannot initiate the transfer, they are simply the recipient of the additional allowance. Both partners need their National Insurance numbers to hand when making the application. The saving then appears in the higher earner's tax code, reducing the amount of tax they pay on employment income through PAYE.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is Marriage Allowance different from Married Couple's Allowance?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, they are two completely different reliefs. Marriage Allowance (the transfer of 10% of the personal allowance) is available to all eligible married couples and civil partners regardless of age. Married Couple's Allowance is a separate, older relief available only where at least one partner was born before 6 April 1935, making it relevant only to older couples. Married Couple's Allowance is worth between £4,280 and £11,080 per year (2025/26) depending on income, and provides a tax reducer rather than an allowance transfer. You cannot claim both reliefs simultaneously.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="tax-code-checker.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Tax Code Checker
+          </a>
+          <a href="inheritance-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Inheritance Tax Calculator
+          </a>
+          <a href="cgt-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Capital Gains Tax Calculator
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    const btn   = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    function calculate() {
+      const lower  = readInput('income-lower');
+      const higher = readInput('income-higher');
+
+      const PA          = 12570;
+      const TRANSFER    = Math.floor(PA * 0.1); // £1,257
+      const BASIC_LIMIT = 50270;
+
+      // Eligibility checks
+      let eligible = true;
+      let reason   = '';
+
+      if (lower >= PA) {
+        eligible = false;
+        reason = 'The lower earner\'s income of ' + formatCurrency(lower) + ' is at or above the personal allowance of £12,570. Marriage Allowance requires the lower earner to have income below £12,570 so they have unused allowance to transfer.';
+      } else if (higher > BASIC_LIMIT) {
+        eligible = false;
+        reason = 'The higher earner\'s income of ' + formatCurrency(higher) + ' exceeds £50,270, placing them in the higher rate band. Marriage Allowance is only available where the receiving partner is a basic rate taxpayer. A higher rate taxpayer cannot benefit from the transfer.';
+      } else if (higher <= PA) {
+        eligible = false;
+        reason = 'The higher earner\'s income of ' + formatCurrency(higher) + ' is within the personal allowance. Neither partner is paying income tax, so transferring part of the personal allowance would produce no saving.';
+      } else if (lower < 0 || higher < 0) {
+        eligible = false;
+        reason = 'Please enter valid income figures for both partners.';
+      }
+
+      // Show eligibility result
+      const badge  = document.getElementById('elig-badge');
+      const text   = document.getElementById('elig-text');
+      const icon   = document.getElementById('elig-icon');
+      const reasonEl = document.getElementById('elig-reason');
+
+      if (eligible) {
+        badge.className = 'elig-badge eligible';
+        text.textContent = 'You are eligible for Marriage Allowance';
+        icon.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+        reasonEl.textContent = 'Based on your incomes, you meet all the conditions. The lower earner should apply at gov.uk/marriage-allowance.';
+        document.getElementById('saving-section').style.display = '';
+
+        // Saving breakdown
+        const lowerNewPA  = PA - TRANSFER;
+        const higherNewPA = PA + TRANSFER;
+        const annualSaving = TRANSFER * 0.20; // £252
+
+        setText('r-annual-saving', formatCurrency(annualSaving));
+        setText('r-transferred', formatCurrency(TRANSFER));
+        setText('r-lower-pa', formatCurrency(lowerNewPA));
+        setText('r-higher-pa', formatCurrency(higherNewPA));
+        setText('r-saving-2', formatCurrency(annualSaving));
+      } else {
+        badge.className = 'elig-badge ineligible';
+        text.textContent = 'Not eligible for Marriage Allowance';
+        icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+        reasonEl.textContent = reason;
+        document.getElementById('saving-section').style.display = 'none';
+      }
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); }));
+  </script>
+
+</body>
+</html>

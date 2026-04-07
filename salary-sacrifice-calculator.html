@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Salary Sacrifice Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free salary sacrifice calculator for 2025/26. Calculate the take-home pay impact of pension sacrifice, cycle to work, EV salary sacrifice and childcare. Includes employer NI saving.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Salary Sacrifice Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Calculate the real cost of salary sacrifice for pension, EV, cycle to work and childcare. See income tax and NI savings instantly.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link active">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item active" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#salary-benefits">Salary &amp; Benefits</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Salary Sacrifice Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Salary Sacrifice Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        Salary sacrifice lets you exchange part of your gross salary for a non-cash benefit, reducing 
+        the income on which you pay tax and National Insurance. The savings can be significant: a basic 
+        rate taxpayer sacrificing £200 per month into a pension effectively pays only £134 for it after 
+        tax and NI relief. This calculator covers the four most common schemes: pension contributions, 
+        cycle to work, electric vehicle salary sacrifice, and childcare vouchers. Enter your salary and 
+        sacrifice amount to see the true cost to your take-home pay, the tax and NI saved, and where 
+        applicable, the employer NI saving that your employer may pass back to you.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Pension, EV, cycle, childcare
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Employer NI saving shown
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Before and after comparison
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Salary Sacrifice Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 · 2025/26 NI rates</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field-row fade-in">
+              <div class="field">
+                <label class="field-label" for="gross-salary">Gross annual salary</label>
+                <span class="field-hint">Before any sacrifice</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="gross-salary" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="sacrifice-type">Sacrifice type</label>
+                <span class="field-hint">What you are exchanging salary for</span>
+                <select class="select" id="sacrifice-type">
+                  <option value="pension">Pension contribution</option>
+                  <option value="ev">Electric vehicle (EV)</option>
+                  <option value="cycle">Cycle to work</option>
+                  <option value="childcare">Childcare vouchers</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="sacrifice-amount">Annual sacrifice amount</label>
+              <span class="field-hint" id="sacrifice-hint">Amount of gross salary you will sacrifice per year</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="sacrifice-amount" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in" id="employer-ni-field">
+              <label class="field-label">Does your employer pass on their NI saving?</label>
+              <span class="field-hint">Some employers add their NI saving (15% of sacrifice) to your pension or benefit</span>
+              <div class="check-group" style="margin-top:4px">
+                <label class="check-item">
+                  <input type="radio" name="employer-ni" value="yes" id="employer-ni-yes">
+                  <span class="check-item-label"><strong>Yes</strong>, employer adds their NI saving to my benefit</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="employer-ni" value="no" id="employer-ni-no" checked>
+                  <span class="check-item-label"><strong>No</strong>, employer keeps the NI saving</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+              Calculate saving
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <div class="result-hero">
+                <div class="result-hero-label">Annual take-home saving</div>
+                <div class="result-hero-value" id="r-net-saving">£0</div>
+                <div class="result-hero-sub" id="r-net-saving-monthly">£0 per month less from your pay</div>
+              </div>
+
+              <!-- Before / after comparison -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Take-home pay comparison</p>
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Gross salary (before sacrifice)</div>
+                  <div class="result-value" id="r-gross">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Sacrificed amount</div>
+                  <div class="result-value" id="r-sacrifice">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Reduced gross salary</div>
+                  <div class="result-value" id="r-reduced-gross">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Take-home before sacrifice</div>
+                  <div class="result-value" id="r-takehome-before">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Take-home after sacrifice</div>
+                  <div class="result-value accent" id="r-takehome-after">£0</div>
+                </div>
+              </div>
+
+              <!-- Savings breakdown -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Where the saving comes from</p>
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Income tax saved</div>
+                  <div class="result-value positive" id="r-tax-saved">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Employee NI saved</div>
+                  <div class="result-value positive" id="r-ni-saved">£0</div>
+                </div>
+                <div class="result-row" id="row-employer-ni">
+                  <div class="result-label">
+                    Employer NI saving
+                    <span class="sublabel" id="sub-employer-ni">15% of sacrifice amount</span>
+                  </div>
+                  <div class="result-value" id="r-employer-ni">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Net cost of sacrifice to you</div>
+                  <div class="result-value accent" id="r-net-cost">£0</div>
+                </div>
+              </div>
+
+              <div class="result-notice" id="sacrifice-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p id="sacrifice-notice-text">Note text appears here.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How salary sacrifice works</h2>
+        <div class="prose">
+          <p>
+            Salary sacrifice (sometimes called salary exchange) is an arrangement where you and your 
+            employer agree to reduce your contractual salary by a set amount, and your employer provides 
+            a non-cash benefit of equivalent value instead. Because your gross salary is lower, you pay 
+            less income tax and less National Insurance on it. Your employer also pays less employer NI, 
+            which is why many employers are willing to offer the arrangement and sometimes pass the saving 
+            back to employees.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Your salary is reduced on paper</h4>
+              <p>You formally agree with your employer to take a lower salary. This is a change to your contract of employment, not simply a deduction from your pay. HMRC requires the arrangement to be a genuine contractual change, not just a reallocation of pay after the fact.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>You pay tax and NI on the lower salary</h4>
+              <p>Because your gross salary is lower, your income tax and employee NI are both calculated on the reduced figure. A basic rate taxpayer saves 20% in income tax plus 8% in NI, meaning every £100 sacrificed only costs £72 in take-home pay. A higher rate taxpayer saves 40% tax plus 2% NI, costing just £58.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Your employer saves NI too</h4>
+              <p>Employer NI is 15% on salary above £5,000. When your salary drops, your employer's NI bill also falls. This saving belongs to the employer by default, but many pass it on, particularly for pension sacrifice, where it can be added directly to your pension pot as an additional employer contribution.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>You receive the benefit instead</h4>
+              <p>The benefit you receive, a pension contribution, lease car, bicycle, or childcare vouchers, is provided by your employer tax-free or at a favourable rate. The total package value (reduced salary plus benefit) should be the same as or better than your original salary.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Watch out for the minimum wage floor:</strong> Your post-sacrifice salary cannot fall below the National Living Wage (£12.21 per hour from April 2025 for workers aged 21 and over). This limits how much lower earners can sacrifice and means cycle to work and childcare schemes have strict maximum limits in practice.</p>
+        </div>
+
+        <div class="rates-table-wrap mt-6 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Scheme</th><th>Annual limit</th><th>NI saving rate</th><th>Key note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pension</td><td class="mono">Up to annual allowance (£60,000)</td><td class="mono">8% / 2%</td><td>Most flexible; no upper limit below annual allowance</td></tr>
+              <tr><td>Electric vehicle</td><td class="mono">Based on P11D value of car</td><td class="mono">8% / 2%</td><td>BIK charge still applies; 3% for EVs in 2025/26</td></tr>
+              <tr><td>Cycle to work</td><td class="mono">No statutory limit (typically £1,000-£5,000)</td><td class="mono">8% / 2%</td><td>Must be used mainly for commuting</td></tr>
+              <tr><td>Childcare vouchers</td><td class="mono">£243/month (basic rate)</td><td class="mono">8% / 2%</td><td>Closed to new entrants; tax-free childcare now preferred</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOUR RESULTS MEAN -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Guidance</div>
+        <h2 class="section-heading">What your results mean</h2>
+        <div class="prose">
+          <p>
+            The <strong>net cost of sacrifice</strong> is what the benefit actually costs you after 
+            tax and NI savings are applied. For a pension sacrifice, this is the most meaningful 
+            figure: it tells you how much your monthly take-home pay falls for every pound you put 
+            into your pension. For a basic rate taxpayer, a £500/month pension sacrifice only reduces 
+            take-home pay by around £360.
+          </p>
+          <p>
+            The <strong>employer NI saving</strong> is worth asking your HR or payroll team about. 
+            Not all employers pass this on, but many do for pension sacrifice specifically. If your 
+            employer adds their NI saving to your pension, the effective return on your sacrifice 
+            improves significantly. On a £10,000 annual sacrifice, the employer NI saving is £1,500.
+          </p>
+          <p>
+            Note that salary sacrifice <strong>reduces your pensionable pay</strong> for the purposes 
+            of state benefit calculations, statutory maternity and paternity pay, and mortgage 
+            affordability assessments (some lenders use basic salary not total package). For most 
+            people this is not a significant concern, but it is worth being aware of before committing 
+            to a large sacrifice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is salary sacrifice the same as a pension contribution?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>No, and the difference matters. A standard employee pension contribution is paid from your net salary and then receives basic rate tax relief added by the pension provider (called relief at source). Salary sacrifice pension contributions are paid from your gross salary before tax, so no tax relief is added separately, the saving comes entirely from paying less tax and NI on a lower salary. Salary sacrifice is generally more efficient because you also save NI on the contribution, which you do not with a standard contribution.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Does salary sacrifice affect my state pension entitlement?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Potentially, in edge cases. State pension entitlement is based on National Insurance contribution years. If salary sacrifice reduces your earnings below the Lower Earnings Limit (£6,396 for 2025/26), you would not accrue an NI qualifying year for state pension purposes. For most full-time workers this is not a concern, as the sacrifice would need to be very large to bring salary below that threshold. However, part-time workers on lower salaries should check their post-sacrifice earnings carefully.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How does EV salary sacrifice work?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Your employer leases an electric vehicle and you sacrifice salary to cover the monthly lease cost. You pay tax and NI on your reduced salary, saving significantly compared to buying or leasing the car personally. You do still pay a Benefit in Kind (BIK) charge on the car, but the BIK rate for pure electric vehicles is just 3% of the P11D value in 2025/26, rising gradually to 9% by 2028/29. For a £35,000 EV, the BIK charge at 3% is only £1,050 per year, taxed at your marginal rate. The combination of NI savings and low BIK makes EV salary sacrifice one of the most tax-efficient ways to access a new car.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I change or stop my salary sacrifice arrangement?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>This depends on your employer's scheme rules. Pension sacrifice can usually be changed at any time, subject to your scheme's notice requirements. EV and cycle to work arrangements are typically locked in for the duration of the lease or hire period, as your employer has committed to a contract on your behalf. Childcare vouchers can generally be stopped at any time. HMRC also allows sacrifice arrangements to be unwound if you experience a lifestyle change such as having a child, getting married, or going on maternity leave, even within a fixed-term arrangement.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Does salary sacrifice reduce my mortgage borrowing capacity?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>It can. Many lenders base mortgage affordability on your basic contractual salary, which is the reduced post-sacrifice figure shown on your payslip. If your P60 and payslips show a lower salary due to sacrifice, some lenders will use that lower number. This is particularly relevant if you are sacrificing a large proportion of your salary into a pension or for an EV. Some lenders are more sophisticated and will account for total remuneration, but it is worth confirming with a mortgage broker before maximising a sacrifice arrangement if you are planning to buy property in the near term.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="pension-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Pension Contribution Calculator
+          </a>
+          <a href="student-loan-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Student Loan Calculator
+          </a>
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="salary-vs-dividends-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Salary vs Dividends Calculator
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    const btn   = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    const NOTICES = {
+      pension:   'Pension sacrifice contributions go into your pension gross. The reduced salary also means lower employee and employer NI.',
+      ev:        'EV salary sacrifice saves income tax and NI on the lease cost, but you still pay Benefit in Kind tax on the car at 3% of P11D value in 2025/26.',
+      cycle:     'Cycle to work equipment must be used mainly for commuting. The scheme is typically run over 12 months with an option to buy at the end.',
+      childcare: 'Childcare vouchers are closed to new entrants since October 2018. Existing members can continue. New parents should consider Tax-Free Childcare instead.',
+    };
+
+    function calcTakeHome(salary) {
+      const { totalTax } = calcIncomeTax(salary, false);
+      const ni = calcEmployeeNI(salary);
+      return salary - totalTax - ni;
+    }
+
+    function calculate() {
+      const gross      = readInput('gross-salary');
+      const sacrifice  = readInput('sacrifice-amount');
+      const type       = readSelect('sacrifice-type');
+      const empNIYes   = document.getElementById('employer-ni-yes').checked;
+
+      if (gross <= 0 || sacrifice <= 0) return;
+
+      const reducedGross = Math.max(0, gross - sacrifice);
+
+      const takeHomeBefore = calcTakeHome(gross);
+      const takeHomeAfter  = calcTakeHome(reducedGross);
+      const netReduction   = takeHomeBefore - takeHomeAfter;
+
+      const taxSaved = (() => {
+        const { totalTax: t1 } = calcIncomeTax(gross, false);
+        const { totalTax: t2 } = calcIncomeTax(reducedGross, false);
+        return t1 - t2;
+      })();
+
+      const niSaved = calcEmployeeNI(gross) - calcEmployeeNI(reducedGross);
+
+      const employerNISaving = Math.max(0,
+        calcEmployerNI(gross) - calcEmployerNI(reducedGross)
+      );
+
+      // Net cost = sacrifice - tax saved - NI saved (- employer NI if passed on)
+      const netCost = sacrifice - taxSaved - niSaved - (empNIYes ? employerNISaving : 0);
+
+      // DOM
+      setText('r-net-saving', formatCurrency(netReduction));
+      setText('r-net-saving-monthly', formatCurrency(netReduction / 12) + ' per month less from your pay');
+      setText('r-gross', formatCurrency(gross));
+      setText('r-sacrifice', formatCurrency(sacrifice));
+      setText('r-reduced-gross', formatCurrency(reducedGross));
+      setText('r-takehome-before', formatCurrency(takeHomeBefore));
+      setText('r-takehome-after', formatCurrency(takeHomeAfter));
+      setText('r-tax-saved', formatCurrency(taxSaved));
+      setText('r-ni-saved', formatCurrency(niSaved));
+      setText('r-employer-ni', empNIYes ? '+' + formatCurrency(employerNISaving) + ' added to your benefit' : formatCurrency(employerNISaving) + ' (kept by employer)');
+      setText('sub-employer-ni', '15% of sacrifice: ' + formatCurrency(employerNISaving));
+      document.getElementById('r-employer-ni').className = 'result-value' + (empNIYes ? ' positive' : '');
+      setText('r-net-cost', formatCurrency(netCost));
+      setText('sacrifice-notice-text', NOTICES[type]);
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); }));
+    document.querySelectorAll('input[name="employer-ni"]').forEach(r => r.addEventListener('change', () => { if (panel.classList.contains('visible')) calculate(); }));
+    document.getElementById('sacrifice-type').addEventListener('change', () => {
+      if (panel.classList.contains('visible')) calculate();
+    });
+  </script>
+
+</body>
+</html>
