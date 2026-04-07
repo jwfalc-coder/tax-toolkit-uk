@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Salary vs Dividends Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free salary vs dividends calculator for Ltd company directors. Find the most tax-efficient split between salary and dividends for 2025/26, factoring in income tax, NI and corporation tax.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Salary vs Dividends Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Find the optimal salary and dividend split for your limited company. Free calculator covering income tax, NI and corporation tax for 2025/26.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .split-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 520px) {
+      .split-comparison { grid-template-columns: 1fr; }
+    }
+
+    .split-card {
+      background: var(--bg-surface-alt);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      text-align: center;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+
+    .split-card.best {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-accent);
+      background: var(--accent-light);
+    }
+
+    .split-card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .split-card.best .split-card-label {
+      color: var(--accent);
+    }
+
+    .split-card-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .split-card-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .best-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: white;
+      border: 1px solid rgba(var(--accent-rgb), 0.25);
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link">Income Tax</a>
+        <a href="index.html#business" class="nav-link active">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item active" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#business">Business</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Salary vs Dividends Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Salary vs Dividends Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        For limited company directors, how you extract income from your company is one of the most 
+        consequential tax decisions you make each year. Taking everything as salary means paying income 
+        tax plus employer and employee NI. Taking it all as dividends means the company pays corporation 
+        tax first, then you pay dividend tax. The optimal split sits between the two. This calculator 
+        models three common approaches for your target income: salary only, the standard low-salary 
+        high-dividend strategy, and a custom split you define. It shows the total tax cost and take-home 
+        for each, factoring in all taxes at both company and personal level.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          All taxes included
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Three strategies compared
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          2025/26 corporation tax rates
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="3 20 6 20"/><polyline points="9 20 12 20"/><polyline points="15 20 18 20"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Salary vs Dividends Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 · Ltd company directors</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field fade-in">
+              <label class="field-label" for="target-income">Target annual income from your company</label>
+              <span class="field-hint">Total amount you want to extract from the company as salary and/or dividends</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="target-income" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="company-profit">Company profit before your remuneration</label>
+              <span class="field-hint">Gross profit available before paying your salary or dividends</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="company-profit" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="custom-salary">Custom salary (optional)</label>
+              <span class="field-hint">Enter a salary amount to model a custom split; the remainder will be taken as dividends</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="custom-salary" min="0" step="1" placeholder="Leave blank to skip" inputmode="numeric">
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Compare strategies
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">Strategy comparison</p>
+
+              <div class="split-comparison" id="strategy-cards"></div>
+
+              <!-- Detailed breakdown for optimal strategy -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Optimal strategy breakdown</p>
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Salary</div>
+                  <div class="result-value" id="r-opt-salary">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Dividends</div>
+                  <div class="result-value" id="r-opt-divs">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">
+                    Corporation tax
+                    <span class="sublabel">On profit after salary deduction</span>
+                  </div>
+                  <div class="result-value" id="r-opt-ct">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Income tax (personal)</div>
+                  <div class="result-value" id="r-opt-it">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Employee NI</div>
+                  <div class="result-value" id="r-opt-emp-ni">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Employer NI</div>
+                  <div class="result-value" id="r-opt-er-ni">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Dividend tax</div>
+                  <div class="result-value" id="r-opt-div-tax">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Total tax cost</div>
+                  <div class="result-value accent" id="r-opt-total-tax">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Net take-home</div>
+                  <div class="result-value positive" id="r-opt-takehome">£0</div>
+                </div>
+              </div>
+
+              <div class="result-notice" style="margin-top:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p>This model assumes you are the sole director and shareholder and that the company has sufficient post-tax profits to pay dividends. Dividends can only be paid from retained profits, not from projected future earnings. Consult an accountant before setting your remuneration strategy.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">Why the salary and dividend split matters</h2>
+        <div class="prose">
+          <p>
+            A limited company is a separate legal entity from you. It pays corporation tax on its 
+            profits. What remains after corporation tax is distributable profit, which can be paid to 
+            shareholders as dividends. Salary, on the other hand, is an expense of the company, it 
+            reduces the profit on which corporation tax is calculated, but it also attracts income tax 
+            and National Insurance at employment rates.
+          </p>
+          <p>
+            The optimal strategy for most owner-directors is to take a salary up to the National 
+            Insurance primary threshold or personal allowance (whichever is more favourable), and take 
+            the rest as dividends. This is sometimes called the "low salary, high dividend" approach.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>The standard optimal salary: £12,570</h4>
+              <p>Taking a salary equal to the personal allowance (£12,570) means no income tax and no employee NI is due. The salary is also a deductible business expense, reducing the company's corporation tax bill. This saves corporation tax of £2,388 (19% of £12,570) compared to taking the same amount as dividends, but only if the company has no other employees and the director handles their own employment administration.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Corporation tax on dividends</h4>
+              <p>Dividends are paid from post-corporation-tax profits. Every pound of dividend requires the company to earn more than a pound before tax. For a small company paying 19% corporation tax, you need £1.23 of profit to pay £1 of dividend. This "grossing up" effect is why taking dividends is not completely free of tax, corporation tax has already been paid on that money.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Dividend tax rates vs income tax + NI</h4>
+              <p>Dividend tax rates are 8.75% (basic), 33.75% (higher), and 39.35% (additional). These are meaningfully lower than the equivalent salary rates of 20% income tax plus 8% employee NI plus 15% employer NI. Even after corporation tax, the total effective rate on dividend income is usually lower than on salary at the same level. The exact breakeven depends on the corporation tax rate applicable to your company.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rates-table-wrap mt-6 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Tax</th><th>On salary</th><th>On dividends</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Corporation tax</td><td class="mono">Not applicable (salary is deductible)</td><td class="mono">19% or 25% paid before dividend</td></tr>
+              <tr><td>Income tax</td><td class="mono">20% / 40% / 45%</td><td class="mono">8.75% / 33.75% / 39.35%</td></tr>
+              <tr><td>Employee NI</td><td class="mono">8% / 2%</td><td class="mono">None</td></tr>
+              <tr><td>Employer NI</td><td class="mono">15% above £5,000</td><td class="mono">None</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Employment Allowance:</strong> If your company has other employees (not just you as the sole director), you may be eligible for Employment Allowance of up to £10,500 per year, which reduces the employer NI bill. This changes the optimal salary calculation and may make a higher salary more tax-efficient. The calculator above does not include Employment Allowance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I take all my income as dividends and pay no NI?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Technically yes, but it is not usually optimal. Dividends attract no NI, but the company still pays corporation tax on the profit before the dividend is paid. More importantly, taking no salary at all means you do not accrue a qualifying year for State Pension purposes unless you have other NI contributions. Most accountants recommend a minimum salary at least equal to the Lower Earnings Limit (£6,396 for 2025/26) to maintain NI record, or the full personal allowance (£12,570) if you handle your own payroll administration.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I need to run payroll to pay myself a salary?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. If you pay yourself a salary, your company must register as an employer with HMRC and run PAYE. This involves submitting Real Time Information (RTI) reports each time you pay yourself, even if no tax or NI is due. Many small company directors pay themselves a salary below the NI threshold specifically to keep payroll administration minimal, a salary at the personal allowance of £12,570 means no deductions to process, just a monthly RTI submission. Many contractor accountants include this in their service packages.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              When is it better to take a higher salary?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>A higher salary makes sense in several circumstances. If you are applying for a mortgage, lenders typically require two or three years of salary evidence at a level that supports the borrowing, dividend income is treated less favourably or excluded entirely by some lenders. If you are contributing to a pension, your maximum annual pension contribution is capped at your earned income (salary), not dividends. If you have Employment Allowance available, the employer NI cost of a higher salary is reduced or eliminated. And if your company qualifies for R&D tax credits or other reliefs based on staff costs, a higher salary increases the qualifying base.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is the optimum salary for a sole director in 2025/26?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>For a sole director who is the only employee, the standard recommendation for 2025/26 is a salary of £12,570. At this level, no income tax is due because the salary equals the personal allowance, and employee NI is also nil because the primary threshold is £12,570. No employer NI is due either. The salary is fully deductible from company profits, saving corporation tax of approximately £2,388 at the small profits rate of 19%. Any income above this should typically be taken as dividends up to the basic rate threshold, then as retained profits held in the company if further efficiency is needed.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="dividend-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Dividend Tax Calculator
+          </a>
+          <a href="ir35-checker.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            IR35 Status Checker
+          </a>
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="vat-threshold-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            VAT Threshold Checker
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified accountant before setting your company remuneration strategy.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    const btn   = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    // Corporation tax calculation 2025/26
+    function calcCorpTax(profit) {
+      if (profit <= 0) return 0;
+      if (profit <= 50000) return profit * 0.19;
+      if (profit >= 250000) return profit * 0.25;
+      // Marginal relief
+      const marginalRelief = (250000 - profit) * (3 / 200);
+      return profit * 0.25 - marginalRelief;
+    }
+
+    // Model a single salary/dividend strategy
+    // companyProfit = profit before salary (salary is deductible)
+    function modelStrategy(salary, targetIncome, companyProfit) {
+      const dividends = Math.max(0, targetIncome - salary);
+
+      // Company side
+      const profitAfterSalary = Math.max(0, companyProfit - salary);
+      const employerNI = calcEmployerNI(salary);
+      const profitAfterAll = Math.max(0, profitAfterSalary - employerNI);
+      const corpTax = calcCorpTax(profitAfterAll);
+      const postTaxProfit = profitAfterAll - corpTax;
+
+      // Can company actually fund the dividends?
+      const actualDividends = Math.min(dividends, postTaxProfit);
+
+      // Personal side
+      const { totalTax: incomeTax } = calcIncomeTax(salary, false);
+      const employeeNI = calcEmployeeNI(salary);
+      const { tax: divTax } = calcDividendTax(actualDividends, salary, false);
+
+      const totalPersonalTax = incomeTax + employeeNI + divTax;
+      const totalTax = corpTax + employerNI + totalPersonalTax;
+      const takeHome = salary - incomeTax - employeeNI + actualDividends - divTax;
+
+      return { salary, dividends: actualDividends, corpTax, employerNI, incomeTax, employeeNI, divTax, totalTax, takeHome, postTaxProfit };
+    }
+
+    function calculate() {
+      const target  = readInput('target-income');
+      const profit  = readInput('company-profit');
+      const custom  = readInput('custom-salary');
+
+      if (target <= 0 || profit <= 0) return;
+
+      // Strategy 1: Salary only
+      const s1 = modelStrategy(target, target, profit);
+
+      // Strategy 2: Optimal (£12,570 salary, rest dividends)
+      const optSalary = Math.min(12570, target);
+      const s2 = modelStrategy(optSalary, target, profit);
+
+      // Strategy 3: Custom (if provided) or salary at NI threshold
+      const s3salary = custom > 0 ? custom : 9100;
+      const s3 = modelStrategy(s3salary, target, profit);
+
+      const strategies = [
+        { label: 'Salary only', data: s1 },
+        { label: 'Optimal split', data: s2, optimal: true },
+        { label: custom > 0 ? 'Custom split' : 'NI threshold split', data: s3 },
+      ];
+
+      // Find best by lowest total tax
+      const best = strategies.reduce((a, b) => a.data.totalTax <= b.data.totalTax ? a : b);
+
+      // Render strategy cards
+      const cardsEl = document.getElementById('strategy-cards');
+      cardsEl.innerHTML = strategies.map(s => {
+        const isBest = s.label === best.label;
+        return `
+          <div class="split-card ${isBest ? 'best' : ''}">
+            ${isBest ? '<div class="best-badge"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Most efficient</div>' : ''}
+            <div class="split-card-label">${s.label}</div>
+            <div class="split-card-value">${formatCurrencyWhole(s.data.takeHome)}</div>
+            <div class="split-card-sub">take-home</div>
+            <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted);">
+              ${formatCurrencyWhole(s.data.totalTax)} total tax
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">
+              ${formatCurrencyWhole(s.data.salary)} salary + ${formatCurrencyWhole(s.data.dividends)} dividends
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Detailed breakdown for optimal strategy
+      setText('r-opt-salary',    formatCurrency(s2.salary));
+      setText('r-opt-divs',      formatCurrency(s2.dividends));
+      setText('r-opt-ct',        formatCurrency(s2.corpTax));
+      setText('r-opt-it',        formatCurrency(s2.incomeTax));
+      setText('r-opt-emp-ni',    formatCurrency(s2.employeeNI));
+      setText('r-opt-er-ni',     formatCurrency(s2.employerNI));
+      setText('r-opt-div-tax',   formatCurrency(s2.divTax));
+      setText('r-opt-total-tax', formatCurrency(s2.totalTax));
+      setText('r-opt-takehome',  formatCurrency(s2.takeHome));
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); }));
+  </script>
+
+</body>
+</html>

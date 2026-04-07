@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Tax Code Checker UK 2025/26 | What Does My Tax Code Mean? | Tax Toolkit UK</title>
+  <meta name="description" content="Free UK tax code checker. Enter your tax code such as 1257L and find out what it means, what your tax-free allowance is, and whether it looks correct for 2025/26.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Tax Code Checker UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Enter your tax code and find out exactly what it means. Free UK tax code checker covering all standard and emergency codes for 2025/26.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .code-display {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .code-part {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .code-part-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-surface-alt);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 18px;
+      line-height: 1;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    .code-part-value.accent-part {
+      color: var(--accent);
+      border-color: rgba(var(--accent-rgb), 0.3);
+      background: var(--accent-light);
+    }
+
+    .code-part-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .code-plus {
+      font-size: 1.25rem;
+      color: var(--text-tertiary);
+      padding: 0 8px;
+      padding-bottom: 24px;
+    }
+
+    .code-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .code-flag.ok      { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
+    .code-flag.warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning-border); }
+    .code-flag.error   { background: var(--error-bg);   color: var(--error);   border: 1px solid var(--error-border); }
+    .code-flag.info    { background: var(--info-bg);    color: #3b82f6;        border: 1px solid var(--info-border); }
+    .code-flag svg { width: 13px; height: 13px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link active">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item active" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#income-tax">Income Tax</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Tax Code Checker</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Tax Code Checker UK 2025/26</h1>
+      <p class="hero-desc">
+        Your tax code tells your employer how much of your income is tax-free before PAYE deductions 
+        begin. Most people should be on 1257L for 2025/26, but codes can change due to benefits in 
+        kind, underpaid tax from previous years, marriage allowance transfers, or HMRC adjustments. 
+        An incorrect tax code means you are either paying too much tax or not enough, and the latter 
+        leads to an unexpected bill later. Enter your code below to find out exactly what it means, 
+        what tax-free allowance it gives you, and whether it looks right.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          All standard suffix codes
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Emergency and special codes
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Sanity check against 2025/26 standard
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CHECKER -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Tax Code Checker</div>
+              <div class="calc-header-sub">Tax year 2025/26 · Standard code: 1257L</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field fade-in">
+              <label class="field-label" for="tax-code">Your tax code</label>
+              <span class="field-hint">Enter exactly as shown on your payslip or P60, e.g. 1257L, BR, K497, S1257L, NT</span>
+              <input class="input" type="text" id="tax-code" placeholder="e.g. 1257L" maxlength="12"
+                autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+                style="font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; letter-spacing: 0.05em; text-transform: uppercase;">
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="annual-salary-code">Your annual salary (optional)</label>
+              <span class="field-hint">Used to estimate your monthly tax deduction</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="annual-salary-code" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="check-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Check my tax code
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <!-- Visual code breakdown -->
+              <div id="code-visual" class="code-display"></div>
+
+              <!-- Status flag -->
+              <div id="code-flag-wrap" style="margin-bottom: 16px;"></div>
+
+              <!-- What it means -->
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Tax code entered</div>
+                  <div class="result-value" id="r-code-display" style="font-family: 'JetBrains Mono', monospace; font-size: 1rem;">1257L</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Code type</div>
+                  <div class="result-value" id="r-code-type">Standard</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Tax-free allowance</div>
+                  <div class="result-value positive" id="r-allowance">£12,570</div>
+                </div>
+                <div class="result-row" id="row-monthly-tax" style="display:none">
+                  <div class="result-label">
+                    Estimated monthly income tax
+                    <span class="sublabel">Based on salary entered</span>
+                  </div>
+                  <div class="result-value" id="r-monthly-tax">£0</div>
+                </div>
+              </div>
+
+              <!-- Explanation -->
+              <div style="background: var(--bg-surface-alt); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; margin-top: 16px;">
+                <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px;">What this code means</p>
+                <p id="r-explanation" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;"></p>
+              </div>
+
+              <!-- Action advice -->
+              <div class="result-notice" id="r-action-wrap" style="margin-top: 12px; display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p id="r-action"></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How to read a UK tax code</h2>
+        <div class="prose">
+          <p>
+            Most UK tax codes consist of a number followed by a letter. The number represents your 
+            tax-free income divided by ten, and the letter tells your employer how to apply it. The 
+            standard code for 2025/26 is <strong>1257L</strong>, which represents the standard personal 
+            allowance of £12,570 (1257 multiplied by 10) with the L suffix indicating the standard 
+            rate. However, there are many variations.
+          </p>
+        </div>
+
+        <div class="rates-table-wrap mt-4 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Suffix / code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>L</strong></td><td>Standard personal allowance (most common)</td></tr>
+              <tr><td><strong>M</strong></td><td>Marriage Allowance, you have received 10% of your partner's allowance</td></tr>
+              <tr><td><strong>N</strong></td><td>Marriage Allowance, you have transferred 10% of your allowance to your partner</td></tr>
+              <tr><td><strong>T</strong></td><td>Your code includes other calculations; HMRC needs to review</td></tr>
+              <tr><td><strong>S</strong> prefix</td><td>Scottish taxpayer, Scottish income tax rates apply</td></tr>
+              <tr><td><strong>C</strong> prefix</td><td>Welsh taxpayer, Welsh income tax rates apply</td></tr>
+              <tr><td><strong>K</strong> prefix</td><td>Negative allowance, you owe more in tax than your allowance covers</td></tr>
+              <tr><td><strong>BR</strong></td><td>All income taxed at basic rate (20%), no personal allowance</td></tr>
+              <tr><td><strong>D0</strong></td><td>All income taxed at higher rate (40%), second job or pension</td></tr>
+              <tr><td><strong>D1</strong></td><td>All income taxed at additional rate (45%)</td></tr>
+              <tr><td><strong>NT</strong></td><td>No tax to be deducted</td></tr>
+              <tr><td><strong>0T</strong></td><td>No personal allowance, used when allowance is used up elsewhere</td></tr>
+              <tr><td><strong>W1 / M1</strong></td><td>Emergency tax code, tax calculated on a week/month basis only</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout fade-in" style="margin-top: 20px;">
+          <p><strong>K codes:</strong> A K code means you have a negative allowance. This happens when deductions from your allowance (for benefits in kind, state pension, or unpaid tax from previous years) exceed your personal allowance. A K code of K100, for example, means HMRC adds £1,000 to your taxable income rather than deducting an allowance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              My code is not 1257L, should I be worried?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Not necessarily. Many people have non-standard codes for entirely legitimate reasons. A higher number than 1257 could mean you have the Marriage Allowance added, a professional subscription deducted, or working from home tax relief included. A lower number typically means HMRC is collecting tax on a benefit in kind (company car, private medical) or recovering underpaid tax from a previous year. The key is understanding why your code differs. If you cannot identify a reason, contact HMRC on 0300 200 3300 or check your Personal Tax Account online.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What does an emergency tax code mean?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Emergency codes (1257L W1 or 1257L M1, sometimes written as 1257L X) mean your employer is calculating tax on a non-cumulative basis, either weekly or monthly in isolation rather than against your total earnings for the year to date. This is used when you start a new job without providing a P45, or when HMRC cannot confirm your correct code in time. It often results in overpaying tax because it does not account for unused allowance earlier in the year. Once your employer receives your correct code from HMRC, any overpayment should be refunded through payroll automatically.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I tell HMRC my tax code is wrong?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>The fastest way is through your Personal Tax Account at gov.uk/personal-tax-account. You can view all your current tax codes, see what adjustments have been made, and in many cases update the information HMRC holds directly online. Alternatively, call HMRC's income tax helpline on 0300 200 3300 (Monday to Friday, 8am to 6pm). Have your National Insurance number and a recent payslip to hand. If your code is wrong, HMRC will issue a new one and your employer will apply it in the next payroll run.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Why do I have different tax codes for different jobs?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Your personal allowance can only be used against one income source at a time. HMRC allocates it to your main job or primary pension, which receives your standard code (typically 1257L). Your second job or additional income source receives a BR code (taxed at 20% with no allowance) or D0 (40%) depending on your expected total income for the year. This prevents you benefiting from the personal allowance twice. If your secondary income regularly changes or your main income fluctuates, it is worth checking whether HMRC has the correct job designated as your primary income.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="marriage-allowance-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Marriage Allowance Calculator
+          </a>
+          <a href="salary-sacrifice-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Salary Sacrifice Calculator
+          </a>
+          <a href="dividend-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Dividend Tax Calculator
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    const btn   = document.getElementById('check-btn');
+    const panel = document.getElementById('results-panel');
+
+    // Normalise input: strip spaces, uppercase
+    function normalise(raw) {
+      return raw.replace(/\s/g, '').toUpperCase();
+    }
+
+    // Parse a tax code into its components
+    function parseCode(raw) {
+      const code = normalise(raw);
+      if (!code) return null;
+
+      const result = {
+        raw: code,
+        prefix: '',
+        number: null,
+        suffix: '',
+        type: 'unknown',
+        allowance: 0,
+        explanation: '',
+        action: '',
+        flagType: 'info',
+        flagText: '',
+        isEmergency: false,
+        isK: false,
+        isNegative: false,
+      };
+
+      // Special whole codes first
+      const special = {
+        'BR':  { type: 'Flat rate', allowance: 0, flag: 'warning',
+                 exp: 'BR means all your income from this source is taxed at the basic rate of 20% with no personal allowance applied. This is typically used for a second job or pension where your personal allowance has already been allocated elsewhere.',
+                 action: 'If this is your only job, contact HMRC immediately as you are overpaying tax. If it is a second job, this is correct.' },
+        'D0':  { type: 'Flat rate', allowance: 0, flag: 'warning',
+                 exp: 'D0 means all income from this source is taxed at the higher rate of 40% with no personal allowance. This is used for second jobs where HMRC believes all your income from this source will fall in the higher rate band.',
+                 action: 'Check with HMRC that your income levels justify D0 rather than BR. If your total income is not in the higher rate band, you may be overpaying.' },
+        'D1':  { type: 'Flat rate', allowance: 0, flag: 'error',
+                 exp: 'D1 means all income from this source is taxed at the additional rate of 45%. This is used where HMRC expects all income from this source to fall above £125,140.',
+                 action: 'Verify with HMRC that your total income justifies the additional rate across all sources.' },
+        'NT':  { type: 'No tax', allowance: 0, flag: 'info',
+                 exp: 'NT means no tax should be deducted from this income source at all. This is used for certain non-resident situations, some pension payments, or where HMRC has made a specific determination.',
+                 action: 'If you are not sure why you have an NT code, check with HMRC or your employer.' },
+        '0T':  { type: 'No allowance', allowance: 0, flag: 'warning',
+                 exp: '0T means you have no personal allowance against this income. Tax is calculated from £0 at the appropriate rates. This is used when your allowance is fully used elsewhere, when you start a new job without a P45, or when your income is above £125,140.',
+                 action: 'If you have a P45 you have not submitted, give it to your employer. If your income is not above £125,140, contact HMRC.' },
+      };
+
+      // Emergency suffixes
+      const emergencySuffixes = ['W1', 'M1', 'X'];
+
+      if (special[code]) {
+        const s = special[code];
+        result.type = s.type;
+        result.allowance = s.allowance;
+        result.explanation = s.exp;
+        result.action = s.action;
+        result.flagType = s.flag;
+        result.flagText = s.type === 'No tax' ? 'No tax deducted' : 'Non-standard code';
+        return result;
+      }
+
+      // Detect prefix (S = Scottish, C = Welsh)
+      let remaining = code;
+      if (remaining.startsWith('S')) {
+        result.prefix = 'S';
+        remaining = remaining.slice(1);
+      } else if (remaining.startsWith('C')) {
+        result.prefix = 'C';
+        remaining = remaining.slice(1);
+      }
+
+      // Detect K code (negative allowance)
+      if (remaining.startsWith('K')) {
+        result.isK = true;
+        remaining = remaining.slice(1);
+      }
+
+      // Strip emergency suffix
+      for (const suf of emergencySuffixes) {
+        if (remaining.endsWith(suf)) {
+          result.isEmergency = true;
+          remaining = remaining.slice(0, -suf.length);
+          break;
+        }
+      }
+
+      // Extract suffix letter(s)
+      const suffixMatch = remaining.match(/([A-Z]+)$/);
+      if (suffixMatch) {
+        result.suffix = suffixMatch[1];
+        remaining = remaining.slice(0, -result.suffix.length);
+      }
+
+      // Extract number
+      const numMatch = remaining.match(/^(\d+)$/);
+      if (numMatch) {
+        result.number = parseInt(numMatch[1], 10);
+      }
+
+      if (result.number === null) {
+        result.type = 'Unrecognised';
+        result.explanation = 'This code could not be parsed. Check that you have entered it exactly as shown on your payslip, including any prefix letters. Common codes include 1257L, BR, D0, NT, and K codes.';
+        result.flagType = 'error';
+        result.flagText = 'Unrecognised format';
+        return result;
+      }
+
+      // Calculate allowance
+      if (result.isK) {
+        result.allowance = -(result.number * 10);
+        result.isNegative = true;
+      } else {
+        result.allowance = result.number * 10;
+      }
+
+      // Suffix meanings
+      const SUFFIX_MEANINGS = {
+        'L': 'standard personal allowance',
+        'M': 'Marriage Allowance received (personal allowance increased by 10%)',
+        'N': 'Marriage Allowance transferred (personal allowance reduced by 10%)',
+        'T': 'other calculations involved, HMRC review may be needed',
+      };
+
+      const suffixMeaning = SUFFIX_MEANINGS[result.suffix] || 'non-standard adjustment';
+
+      // Type
+      if (result.isK) {
+        result.type = 'K code (negative allowance)';
+      } else if (result.prefix === 'S') {
+        result.type = 'Scottish taxpayer';
+      } else if (result.prefix === 'C') {
+        result.type = 'Welsh taxpayer';
+      } else if (result.suffix === 'M') {
+        result.type = 'Marriage Allowance received';
+      } else if (result.suffix === 'N') {
+        result.type = 'Marriage Allowance transferred';
+      } else if (result.suffix === 'T') {
+        result.type = 'HMRC review needed';
+      } else {
+        result.type = 'Standard';
+      }
+
+      if (result.isEmergency) result.type += ' (emergency)';
+
+      // Explanation
+      if (result.isK) {
+        result.explanation = 'A K code means you have a negative personal allowance. HMRC adds ' + formatCurrency(result.allowance * -1) + ' to your taxable income rather than deducting it as an allowance. This happens when deductions (such as benefits in kind, state pension, or prior year underpaid tax) exceed your standard personal allowance of £12,570.';
+        result.flagType = 'warning';
+        result.flagText = 'Negative allowance code';
+        result.action = 'K codes are legitimate but worth understanding. Check your P2 notice of coding from HMRC for a breakdown of what is causing the negative allowance.';
+      } else if (result.isEmergency) {
+        result.explanation = 'This is an emergency tax code. The W1/M1 suffix means your employer is calculating tax on a week-by-week or month-by-month basis, rather than cumulatively across the year. This often leads to overpaying tax. It is typically applied when you start a new job without submitting a P45.';
+        result.flagType = 'warning';
+        result.flagText = 'Emergency code';
+        result.action = 'Give your P45 from your previous employer to your new employer as soon as possible. If you do not have one, ask HMRC to issue your correct code. Any overpayment will be refunded once the correct code is applied.';
+      } else if (result.allowance === 12570 && result.suffix === 'L') {
+        result.explanation = result.number + 'L is the standard tax code for 2025/26. The number ' + result.number + ' represents your tax-free personal allowance of £12,570 (the number multiplied by 10). The L suffix confirms you receive the standard personal allowance with no adjustments.';
+        result.flagType = 'ok';
+        result.flagText = 'Standard code for 2025/26';
+      } else if (result.allowance > 12570) {
+        result.explanation = 'Your tax-free allowance of ' + formatCurrency(result.allowance) + ' is higher than the standard £12,570. The ' + (suffixMeaning) + ' applies. This could be due to the Marriage Allowance addition, a work expense deduction, or other HMRC adjustment that increases your allowable income.';
+        result.flagType = 'info';
+        result.flagText = 'Higher than standard allowance';
+      } else if (result.allowance < 12570 && result.allowance > 0) {
+        result.explanation = 'Your tax-free allowance of ' + formatCurrency(result.allowance) + ' is lower than the standard £12,570. The difference of ' + formatCurrency(12570 - result.allowance) + ' is being used to collect tax on a benefit in kind (such as a company car or private medical insurance), recover underpaid tax from a previous year, or account for other income not taxed at source.';
+        result.flagType = 'warning';
+        result.flagText = 'Lower than standard allowance';
+        result.action = 'Check your P2 notice of coding from HMRC or log into your Personal Tax Account to see a full breakdown of why your allowance has been reduced.';
+      } else if (result.allowance === 0) {
+        result.explanation = 'A code of 0 means no personal allowance is being applied to this income source.';
+        result.flagType = 'warning';
+        result.flagText = 'No allowance applied';
+      }
+
+      if (result.prefix === 'S') {
+        result.explanation += ' The S prefix means you are a Scottish taxpayer and Scottish income tax rates apply to your non-savings income.';
+      } else if (result.prefix === 'C') {
+        result.explanation += ' The C prefix means you are a Welsh taxpayer. Welsh rates are currently the same as the rest of the UK.';
+      }
+
+      if (!result.flagText) {
+        result.flagType = 'info';
+        result.flagText = 'Tax code explained';
+      }
+
+      return result;
+    }
+
+    function check() {
+      const raw    = document.getElementById('tax-code').value.trim();
+      const salary = readInput('annual-salary-code');
+
+      if (!raw) return;
+
+      const parsed = parseCode(raw);
+      if (!parsed) return;
+
+      // Visual display
+      const visual = document.getElementById('code-visual');
+      visual.innerHTML = '';
+
+      if (parsed.prefix) {
+        visual.innerHTML += `<div class="code-part"><div class="code-part-value accent-part">${parsed.prefix}</div><div class="code-part-label">Region</div></div><div class="code-plus">+</div>`;
+      }
+      if (parsed.isK) {
+        visual.innerHTML += `<div class="code-part"><div class="code-part-value accent-part">K</div><div class="code-part-label">K code</div></div><div class="code-plus">+</div>`;
+      }
+      if (parsed.number !== null) {
+        visual.innerHTML += `<div class="code-part"><div class="code-part-value">${parsed.number}</div><div class="code-part-label">Allowance ÷ 10</div></div>`;
+      }
+      if (parsed.suffix) {
+        visual.innerHTML += `<div class="code-plus">+</div><div class="code-part"><div class="code-part-value accent-part">${parsed.suffix}</div><div class="code-part-label">Suffix</div></div>`;
+      }
+      if (parsed.isEmergency) {
+        visual.innerHTML += `<div class="code-plus">+</div><div class="code-part"><div class="code-part-value" style="font-size:1.25rem">W1/M1</div><div class="code-part-label">Emergency</div></div>`;
+      }
+      // Whole codes
+      if (!parsed.prefix && !parsed.number && !parsed.suffix && !parsed.isK) {
+        visual.innerHTML = `<div class="code-part"><div class="code-part-value accent-part" style="font-size:2rem">${parsed.raw}</div><div class="code-part-label">Special code</div></div>`;
+      }
+
+      // Flag
+      const flagIcons = {
+        ok:      '<polyline points="20 6 9 17 4 12"/>',
+        warning: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+        error:   '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>',
+        info:    '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
+      };
+      document.getElementById('code-flag-wrap').innerHTML = `
+        <span class="code-flag ${parsed.flagType}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${flagIcons[parsed.flagType] || flagIcons.info}</svg>
+          ${parsed.flagText}
+        </span>
+      `;
+
+      // Results
+      setText('r-code-display', parsed.raw);
+      setText('r-code-type', parsed.type);
+      setText('r-allowance', parsed.isNegative ? '-' + formatCurrency(Math.abs(parsed.allowance)) : formatCurrency(parsed.allowance));
+      document.getElementById('r-allowance').className = 'result-value ' + (parsed.isNegative ? 'negative' : parsed.allowance >= 12570 ? 'positive' : 'accent');
+
+      // Monthly tax estimate
+      if (salary > 0 && !parsed.isNegative) {
+        const effectiveAllowance = parsed.allowance;
+        const taxable = Math.max(0, salary - effectiveAllowance);
+        let annualTax = 0;
+        if (parsed.raw === 'BR') annualTax = salary * 0.20;
+        else if (parsed.raw === 'D0') annualTax = salary * 0.40;
+        else if (parsed.raw === 'D1') annualTax = salary * 0.45;
+        else if (parsed.raw === 'NT' || parsed.raw === '0T') annualTax = 0;
+        else {
+          // Standard banded calculation with custom allowance
+          const bands = [
+            { min: 0,       max: effectiveAllowance, rate: 0 },
+            { min: effectiveAllowance, max: effectiveAllowance + 37700, rate: 0.20 },
+            { min: effectiveAllowance + 37700, max: 125140, rate: 0.40 },
+            { min: 125140,  max: Infinity, rate: 0.45 },
+          ];
+          for (const band of bands) {
+            if (salary > band.min) {
+              annualTax += (Math.min(salary, band.max) - band.min) * band.rate;
+            }
+          }
+        }
+        setText('r-monthly-tax', formatCurrency(annualTax / 12));
+        document.getElementById('row-monthly-tax').style.display = '';
+      } else {
+        document.getElementById('row-monthly-tax').style.display = 'none';
+      }
+
+      setText('r-explanation', parsed.explanation);
+
+      const actionWrap = document.getElementById('r-action-wrap');
+      if (parsed.action) {
+        setText('r-action', parsed.action);
+        actionWrap.style.display = '';
+      } else {
+        actionWrap.style.display = 'none';
+      }
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', check);
+    document.getElementById('tax-code').addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+    document.getElementById('annual-salary-code').addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+    document.getElementById('tax-code').addEventListener('input', function() {
+      this.value = this.value.toUpperCase();
+    });
+  </script>
+
+</body>
+</html>
