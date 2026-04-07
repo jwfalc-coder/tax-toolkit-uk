@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /404.html
+
+# Sitemap location — update with your domain before go-live
+# Sitemap: https://YOURDOMAIN.co.uk/sitemap.xml

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Update loc values with your domain before go-live -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/about.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Income Tax & Self Assessment -->
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/self-assessment-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/dividend-tax-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/cgt-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/marriage-allowance-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/tax-code-checker.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Business & Freelance -->
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/ir35-checker.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/salary-vs-dividends-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/vat-threshold-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/employer-cost-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Salary Sacrifice & Benefits -->
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/salary-sacrifice-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/student-loan-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/pension-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Property & Capital -->
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/inheritance-tax-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.co.uk/rental-income-tax-calculator.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

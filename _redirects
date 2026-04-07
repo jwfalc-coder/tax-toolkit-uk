@@ -1,0 +1,5 @@
+# Netlify redirects
+# These are ignored by GitHub Pages but ready for when you move to a custom domain on Netlify
+
+# 404 fallback
+/*    /404.html   404
