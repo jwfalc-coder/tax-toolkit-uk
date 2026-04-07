@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>IR35 Status Checker UK | Free Online IR35 Test | Tax Toolkit UK</title>
+  <meta name="description" content="Free IR35 status checker based on HMRC's CEST criteria. Answer questions about control, substitution and mutuality of obligation to get an indicative inside or outside IR35 assessment.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="IR35 Status Checker UK | Free Online IR35 Test | Tax Toolkit UK">
+  <meta property="og:description" content="Check your IR35 status online. Free questionnaire based on HMRC's CEST criteria covering control, substitution and mutuality of obligation.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* IR35-specific styles */
+    .q-step { display: none; }
+    .q-step.active { display: block; }
+
+    .q-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .q-progress-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .q-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .q-progress-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .q-card {
+      background: var(--bg-surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .q-number {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .q-text {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .q-hint {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .q-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all var(--t);
+      text-align: left;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .q-option:hover {
+      border-color: rgba(var(--accent-rgb), 0.35);
+      background: var(--accent-light);
+    }
+
+    .q-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .q-option-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--border-strong);
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all var(--t);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .q-option.selected .q-option-indicator {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .q-option.selected .q-option-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .q-option-text {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .q-option-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .q-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    /* Verdict */
+    .verdict {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .verdict.visible { display: flex; }
+
+    .verdict-card {
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .verdict-card.outside {
+      background: var(--success-bg);
+      border: 1.5px solid var(--success-border);
+    }
+
+    .verdict-card.inside {
+      background: var(--error-bg);
+      border: 1.5px solid var(--error-border);
+    }
+
+    .verdict-card.borderline {
+      background: var(--warning-bg);
+      border: 1.5px solid var(--warning-border);
+    }
+
+    .verdict-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+
+    .verdict-card.outside .verdict-icon { background: var(--success); }
+    .verdict-card.inside .verdict-icon  { background: var(--error); }
+    .verdict-card.borderline .verdict-icon { background: var(--warning); }
+
+    .verdict-icon svg { color: white; }
+
+    .verdict-status {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .verdict-card.outside .verdict-status  { color: var(--success); }
+    .verdict-card.inside .verdict-status   { color: var(--error); }
+    .verdict-card.borderline .verdict-status { color: var(--warning); }
+
+    .verdict-title {
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .verdict-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .verdict-factors {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .verdict-factor {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .verdict-factor:last-child { border-bottom: none; }
+
+    .factor-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .factor-dot.good    { background: var(--success); }
+    .factor-dot.bad     { background: var(--error); }
+    .factor-dot.neutral { background: var(--text-tertiary); }
+
+    .factor-text {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .factor-text strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link">Income Tax</a>
+        <a href="index.html#business" class="nav-link active">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item active" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#business">Business</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">IR35 Status Checker</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Based on HMRC CEST criteria
+      </div>
+      <h1 class="hero-title">IR35 Status Checker</h1>
+      <p class="hero-desc">
+        IR35 is the set of rules HMRC uses to determine whether a contractor working through a limited 
+        company should be taxed as an employee. Getting it wrong is costly: inside IR35 means paying 
+        income tax and National Insurance on your contract income as if you were an employee. This 
+        checker works through the same key factors HMRC's own CEST tool considers: control, 
+        substitution, mutuality of obligation, financial risk, and integration. It gives you an 
+        indicative verdict with a breakdown of the factors supporting it. Answer each question as 
+        honestly as possible based on your actual working arrangements, not what your contract says.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          8 questions
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          HMRC CEST criteria
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant verdict with reasoning
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CHECKER -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">IR35 Status Checker</div>
+              <div class="calc-header-sub">Based on HMRC's CEST tool criteria</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <!-- Progress -->
+            <div class="q-progress">
+              <div class="q-progress-bar">
+                <div class="q-progress-fill" id="progress-fill" style="width: 0%"></div>
+              </div>
+              <div class="q-progress-label" id="progress-label">Question 1 of 8</div>
+            </div>
+
+            <!-- Questions -->
+            <div id="questions-wrap">
+
+              <!-- Q1: Control -->
+              <div class="q-step active" data-q="1">
+                <div class="q-card">
+                  <div class="q-number">Question 1 of 8: Control</div>
+                  <div class="q-text">Who decides how you carry out your work day to day?</div>
+                  <p class="q-hint">Think about who determines the methods, processes, and approach you use, not just when and where.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="1" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I decide how to do the work myself</div>
+                      <div class="q-option-sub">The client specifies the outcome or deliverable, but not the method</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="1" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">It varies, some direction, but I have discretion</div>
+                      <div class="q-option-sub">The client provides some guidance but I retain professional judgement</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="1" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">The client directs how I carry out the work</div>
+                      <div class="q-option-sub">I follow processes and methods set by the client</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q2: Substitution -->
+              <div class="q-step" data-q="2">
+                <div class="q-card">
+                  <div class="q-number">Question 2 of 8: Substitution</div>
+                  <div class="q-text">Can you send a substitute to do the work in your place?</div>
+                  <p class="q-hint">The right must be genuine, not just contractual. Has it ever been exercised, or could it be?</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="2" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Yes, I have an unfettered right to send a substitute</div>
+                      <div class="q-option-sub">The client must accept a suitably qualified replacement</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="2" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Yes, but the client must approve the substitute</div>
+                      <div class="q-option-sub">Subject to client consent, which could be withheld</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="2" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">No: the client requires me personally to do the work</div>
+                      <div class="q-option-sub">Personal service is a requirement of the engagement</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q3: Mutuality of Obligation -->
+              <div class="q-step" data-q="3">
+                <div class="q-card">
+                  <div class="q-number">Question 3 of 8: Mutuality of Obligation</div>
+                  <div class="q-text">Is the client obliged to offer you work, and are you obliged to accept it?</div>
+                  <p class="q-hint">MOO exists where there is an ongoing expectation of work on both sides, beyond just the current contract.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="3" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">No obligation on either side beyond the current contract</div>
+                      <div class="q-option-sub">I can walk away and the client can end the engagement at the project's conclusion</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="3" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">The contract auto-renews, but either party can decline</div>
+                      <div class="q-option-sub">There is some expectation of continuity but it is not contractually required</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="3" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">There is an ongoing expectation of work from both sides</div>
+                      <div class="q-option-sub">I am expected to be available and the client expects to keep engaging me</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q4: Financial risk -->
+              <div class="q-step" data-q="4">
+                <div class="q-card">
+                  <div class="q-number">Question 4 of 8: Financial Risk</div>
+                  <div class="q-text">Do you bear financial risk in this engagement?</div>
+                  <p class="q-hint">Consider whether you could make a loss, are liable for fixing mistakes at your own cost, or have invested in equipment or staff.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="4" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Yes: I could make a loss or am liable for defects</div>
+                      <div class="q-option-sub">I have invested capital, carry PI insurance, or bear the cost of fixing poor work</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="4" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Some risk: I carry insurance but have limited financial exposure</div>
+                      <div class="q-option-sub">Professional indemnity is in place but no significant capital at risk</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="4" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">No: I am paid a fixed rate regardless of outcome</div>
+                      <div class="q-option-sub">The client bears the risk; I am paid for time regardless of deliverable quality</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q5: Equipment -->
+              <div class="q-step" data-q="5">
+                <div class="q-card">
+                  <div class="q-number">Question 5 of 8: Equipment</div>
+                  <div class="q-text">Who provides the main equipment or tools needed to do your work?</div>
+                  <p class="q-hint">Ignore minor items like a laptop. Think about significant tools, machinery, or specialist software licences.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="5" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I provide my own significant equipment</div>
+                      <div class="q-option-sub">I use my own tools, software licences, or specialist equipment</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="5" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Mixed: I use some client equipment and some of my own</div>
+                      <div class="q-option-sub">Partly client-supplied for practical or security reasons</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="5" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">The client provides all significant equipment</div>
+                      <div class="q-option-sub">I work on the client's systems, using their tools and licences</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q6: Part and parcel -->
+              <div class="q-step" data-q="6">
+                <div class="q-card">
+                  <div class="q-number">Question 6 of 8: Integration</div>
+                  <div class="q-text">How integrated are you into the client's organisation?</div>
+                  <p class="q-hint">Consider whether you have a line manager, attend all-staff meetings, appear on org charts, or use an internal email address.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="6" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I am clearly an external contractor</div>
+                      <div class="q-option-sub">I am treated as outside the business; no internal title, line management, or staff benefits</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="6" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Somewhat integrated, but clearly a contractor</div>
+                      <div class="q-option-sub">I have an internal email address or attend some team meetings, but no employment rights or benefits</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="6" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I am treated like an employee in practice</div>
+                      <div class="q-option-sub">I have a manager, internal job title, appear on org charts, or attend staff events</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q7: Exclusivity -->
+              <div class="q-step" data-q="7">
+                <div class="q-card">
+                  <div class="q-number">Question 7 of 8: Exclusivity</div>
+                  <div class="q-text">Do you work for multiple clients, or are you restricted to this client?</div>
+                  <p class="q-hint">Being able to work for other clients at the same time is a strong indicator of self-employment.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="7" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I work for multiple clients simultaneously</div>
+                      <div class="q-option-sub">I have or could have other contracts running at the same time</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="7" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I work for one client at a time but change clients regularly</div>
+                      <div class="q-option-sub">Not exclusive by contract, but practically working full-time for this client</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="7" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I am restricted to this client exclusively</div>
+                      <div class="q-option-sub">The contract prevents me working for other clients, or I am effectively full-time here long-term</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Q8: Hours/location -->
+              <div class="q-step" data-q="8">
+                <div class="q-card">
+                  <div class="q-number">Question 8 of 8: Working arrangements</div>
+                  <div class="q-text">Who controls when and where you work?</div>
+                  <p class="q-hint">Flexible hours and remote working both point towards self-employment, but set hours at the client's premises point the other way.</p>
+                </div>
+                <div class="q-options">
+                  <button class="q-option" data-q="8" data-val="outside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">I choose my own hours and work location</div>
+                      <div class="q-option-sub">I set my own schedule and primarily work from my own premises</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="8" data-val="borderline" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">Some flexibility, but core hours or location are expected</div>
+                      <div class="q-option-sub">I work partly at the client's site or within broadly defined hours</div>
+                    </div>
+                  </button>
+                  <button class="q-option" data-q="8" data-val="inside" onclick="selectOption(this)">
+                    <div class="q-option-indicator"></div>
+                    <div>
+                      <div class="q-option-text">The client sets my hours and I work at their premises</div>
+                      <div class="q-option-sub">Fixed hours, on-site attendance, and defined working patterns</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="q-nav" id="q-nav">
+              <button class="btn btn--ghost btn--sm" id="btn-back" onclick="goBack()" style="display:none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                Back
+              </button>
+              <div style="flex:1"></div>
+              <button class="btn btn--primary" id="btn-next" onclick="goNext()" disabled>
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <!-- Verdict -->
+            <div class="verdict" id="verdict">
+
+              <div id="verdict-card-wrap"></div>
+
+              <div>
+                <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">Factor breakdown</p>
+                <div class="verdict-factors" id="verdict-factors"></div>
+              </div>
+
+              <div class="result-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p>This is an indicative assessment only, not a legal determination. HMRC considers the overall picture of a working relationship, not individual factors in isolation. For a high-value contract or any HMRC enquiry, take professional advice from a specialist contractor accountant or employment law solicitor.</p>
+              </div>
+
+              <button class="btn btn--outline btn--full" onclick="resetChecker()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+                Start again
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">What IR35 means and how HMRC decides</h2>
+        <div class="prose">
+          <p>
+            IR35 (officially the Intermediaries Legislation) was introduced in 2000 to tackle what HMRC 
+            called "disguised employment", where an individual effectively works as an employee but 
+            structures their income through a limited company to pay less tax and NI. The legislation 
+            says that if, ignoring the company, the worker would be an employee, they must pay 
+            employment taxes on their income from that engagement.
+          </p>
+          <p>
+            There is no single test for IR35. HMRC and the courts look at the overall picture of the 
+            working relationship. However, three factors carry the most weight: control (the dominant 
+            test), substitution, and mutuality of obligation. A genuine right to substitute and an 
+            absence of mutuality of obligation are the strongest indicators of being outside IR35.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Control</h4>
+              <p>HMRC asks: does the client control not just what work is done, but how it is done? An employee is typically told how to carry out their duties. A genuine contractor delivers an outcome using their own professional expertise and judgement. The more the client dictates the method, the stronger the case for inside IR35.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Substitution</h4>
+              <p>Can you send someone else to do the work? A genuine right of substitution is a powerful outside indicator because it means the contract is for a service, not for your personal attendance. The right must be real and not merely contractual window-dressing, HMRC will look at whether it has ever been exercised or could realistically be.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Mutuality of Obligation</h4>
+              <p>Does the client have an obligation to offer you work, and do you have an obligation to accept it? This is the characteristic that most distinguishes employment from contracting. An employee has an ongoing obligation to turn up; a contractor is engaged for a specific project. If both parties simply move on after the project ends with no expectation of continuation, MOO is absent.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Off-payroll rules (Chapter 10 ITEPA):</strong> Since April 2021, medium and large private sector clients are responsible for determining the IR35 status of contractors they engage, not the contractor themselves. If you work for a small company (two of three criteria: under 50 employees, under £10.2m turnover, under £5.1m balance sheet), the old rules still apply and you determine your own status.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What happens if HMRC decides I am inside IR35?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>If HMRC determines that an engagement is inside IR35, the income from that engagement is treated as a deemed salary. You (or your fee-payer under the off-payroll rules) must pay income tax and National Insurance on the full contract value, minus a 5% allowance for business expenses. You cannot take dividends from the contract income. The financial impact can be severe: a contractor billing £100,000 who should have been inside IR35 could face an additional tax bill of £25,000 to £35,000, plus interest and potentially penalties for earlier years.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Does my contract wording determine my IR35 status?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>No. Your contract is relevant, but HMRC will always look at the actual working practices rather than what the contract says. A contract can include outside IR35 clauses such as a substitution right, but if you never use it and the client would not accept a substitute in practice, HMRC will disregard it. The phrase "contracts are a starting point, not the whole picture" is frequently used in IR35 case law. Your working reality must match your contract terms.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Who determines IR35 status: me or my client?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>It depends on the size of the client. Since April 2021, medium and large companies in the private sector are responsible for making the status determination and issuing a Status Determination Statement (SDS). If they determine inside IR35, the fee-payer (often a recruitment agency) must deduct income tax and NI from your invoice. If your client is a small company (meeting two of: under 50 employees, turnover under £10.2m, balance sheet under £5.1m), you still determine your own status as under the original rules. Public sector engagements moved to the same model in 2017.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I work inside IR35 and still use a limited company?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, but there is limited financial benefit. If you are inside IR35 under the off-payroll rules, the fee-payer deducts income tax and employee NI before paying your company. Your company also pays employer NI. The money that reaches your company has already been taxed at employment rates, so taking it as dividends creates a further tax liability. Many contractors in this position choose to use an umbrella company instead, which handles the PAYE processing and is often simpler than operating a limited company with little tax advantage.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="salary-vs-dividends-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Salary vs Dividends Calculator
+          </a>
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="dividend-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Dividend Tax Calculator
+          </a>
+          <a href="vat-threshold-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            VAT Threshold Checker
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free tools for guidance purposes only. The IR35 checker gives an indicative assessment based on the factors you describe. It is not a legal determination. Always seek specialist contractor tax advice for formal IR35 assessment.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    // ============================================================
+    // IR35 CHECKER
+    // ============================================================
+
+    const TOTAL_QUESTIONS = 8;
+    let currentQ = 1;
+    const answers = {}; // { 1: 'outside', 2: 'inside', ... }
+
+    const FACTOR_LABELS = {
+      1: 'Control over how work is done',
+      2: 'Right of substitution',
+      3: 'Mutuality of obligation',
+      4: 'Financial risk',
+      5: 'Equipment provision',
+      6: 'Integration into client organisation',
+      7: 'Exclusivity',
+      8: 'Control over hours and location',
+    };
+
+    function selectOption(el) {
+      // Deselect all in this step
+      el.closest('.q-options').querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      answers[currentQ] = el.dataset.val;
+      document.getElementById('btn-next').disabled = false;
+    }
+
+    function updateProgress() {
+      const pct = ((currentQ - 1) / TOTAL_QUESTIONS) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent = 'Question ' + currentQ + ' of ' + TOTAL_QUESTIONS;
+    }
+
+    function showStep(n) {
+      document.querySelectorAll('.q-step').forEach(s => s.classList.remove('active'));
+      const step = document.querySelector('.q-step[data-q="' + n + '"]');
+      if (step) step.classList.add('active');
+
+      document.getElementById('btn-back').style.display = n > 1 ? '' : 'none';
+      document.getElementById('btn-next').disabled = !answers[n];
+
+      // Last question: change Next to "See result"
+      const nextBtn = document.getElementById('btn-next');
+      if (n === TOTAL_QUESTIONS) {
+        nextBtn.innerHTML = 'See my result <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+      } else {
+        nextBtn.innerHTML = 'Next <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+      }
+
+      updateProgress();
+    }
+
+    function goNext() {
+      if (!answers[currentQ]) return;
+      if (currentQ < TOTAL_QUESTIONS) {
+        currentQ++;
+        showStep(currentQ);
+      } else {
+        showVerdict();
+      }
+    }
+
+    function goBack() {
+      if (currentQ > 1) {
+        currentQ--;
+        showStep(currentQ);
+      }
+    }
+
+    function showVerdict() {
+      // Score: outside = 2, borderline = 1, inside = 0
+      const scores = Object.values(answers).map(v => v === 'outside' ? 2 : v === 'borderline' ? 1 : 0);
+      const total = scores.reduce((a, b) => a + b, 0);
+      const max   = TOTAL_QUESTIONS * 2;
+      const pct   = total / max;
+
+      // Weight control (Q1), substitution (Q2), MOO (Q3) more heavily
+      const keyScore = (answers[1] === 'outside' ? 2 : answers[1] === 'borderline' ? 1 : 0)
+                     + (answers[2] === 'outside' ? 2 : answers[2] === 'borderline' ? 1 : 0)
+                     + (answers[3] === 'outside' ? 2 : answers[3] === 'borderline' ? 1 : 0);
+
+      let verdict, title, desc, cardClass;
+
+      if (keyScore >= 5 && pct >= 0.65) {
+        verdict = 'LIKELY OUTSIDE IR35';
+        title   = 'Your engagement looks outside IR35';
+        desc    = 'Based on your answers, the key indicators, control, substitution, and mutuality of obligation, point towards a genuine self-employed arrangement. However, IR35 is assessed on the overall picture and this is not a legal determination.';
+        cardClass = 'outside';
+      } else if (keyScore <= 2 && pct <= 0.40) {
+        verdict = 'LIKELY INSIDE IR35';
+        title   = 'Your engagement may be inside IR35';
+        desc    = 'Based on your answers, several key indicators suggest this engagement resembles employment. You should review your working arrangements and take specialist advice before continuing to operate outside IR35.';
+        cardClass = 'inside';
+      } else {
+        verdict = 'BORDERLINE: REVIEW NEEDED';
+        title   = 'Your IR35 status is unclear';
+        desc    = 'Your answers show a mixed picture. Some factors point outside IR35, but others are concerning. This is exactly the type of case where specialist contractor tax advice is essential before making any assumptions.';
+        cardClass = 'borderline';
+      }
+
+      // Verdict card
+      const iconSVG = cardClass === 'outside'
+        ? '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+        : cardClass === 'inside'
+        ? '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+      document.getElementById('verdict-card-wrap').innerHTML = `
+        <div class="verdict-card ${cardClass}">
+          <div class="verdict-icon">${iconSVG}</div>
+          <div class="verdict-status">${verdict}</div>
+          <div class="verdict-title">${title}</div>
+          <p class="verdict-desc">${desc}</p>
+        </div>
+      `;
+
+      // Factor breakdown
+      const factorsHTML = Object.entries(answers).map(([q, val]) => {
+        const dotClass = val === 'outside' ? 'good' : val === 'inside' ? 'bad' : 'neutral';
+        const label = FACTOR_LABELS[q];
+        const text  = val === 'outside' ? 'Points outside IR35' : val === 'inside' ? 'Points inside IR35' : 'Borderline';
+        return `
+          <div class="verdict-factor">
+            <div class="factor-dot ${dotClass}"></div>
+            <div class="factor-text"><strong>${label}:</strong> ${text}</div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('verdict-factors').innerHTML = factorsHTML;
+
+      // Show verdict, hide question steps and nav
+      document.getElementById('questions-wrap').style.display = 'none';
+      document.getElementById('q-nav').style.display = 'none';
+      document.querySelector('.q-progress').style.display = 'none';
+      document.getElementById('verdict').classList.add('visible');
+
+      document.getElementById('verdict').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetChecker() {
+      currentQ = 1;
+      Object.keys(answers).forEach(k => delete answers[k]);
+      document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+      document.getElementById('questions-wrap').style.display = '';
+      document.getElementById('q-nav').style.display = '';
+      document.querySelector('.q-progress').style.display = '';
+      document.getElementById('verdict').classList.remove('visible');
+      showStep(1);
+    }
+
+    // Init
+    showStep(1);
+  </script>
+
+</body>
+</html>

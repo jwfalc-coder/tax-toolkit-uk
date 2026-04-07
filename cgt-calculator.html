@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Capital Gains Tax Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free capital gains tax calculator for 2025/26. Calculate CGT on shares, property and other assets after the £3,000 annual exempt amount at 18% and 24%.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Capital Gains Tax Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Calculate capital gains tax on shares, property and other assets for 2025/26. Covers the £3,000 annual exempt amount and 18%/24% rates.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Capital Gains Tax Calculator UK 2025/26",
+    "description": "Free UK capital gains tax calculator covering shares, property and other assets for the 2025/26 tax year.",
+    "url": "",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link active">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right"><a href="about.html" class="nav-cta">About</a></div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item active" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#income-tax">Income Tax</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Capital Gains Tax Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Capital Gains Tax Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        When you sell an asset for more than you paid for it, the profit is a capital gain and may be 
+        subject to Capital Gains Tax. This calculator works out your CGT liability for 2025/26 on shares, 
+        residential property, and other assets. It applies the £3,000 annual exempt amount, uses your 
+        income to determine whether gains fall in the basic or higher rate band, and shows the tax at 
+        18% and 24% accordingly. Since October 2024, residential property CGT rates were aligned with 
+        other assets, replacing the previous 18%/28% split. Enter your figures below for an instant 
+        estimate.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          £3,000 exempt amount applied
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Shares, property and other assets
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Post-October 2024 rates
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Capital Gains Tax Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 · £3,000 annual exempt amount</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field fade-in">
+              <label class="field-label" for="asset-type">Asset type</label>
+              <select class="select" id="asset-type">
+                <option value="shares">Shares / funds / ETFs</option>
+                <option value="property">Residential property</option>
+                <option value="other">Other asset (business asset, art, crypto, etc.)</option>
+              </select>
+            </div>
+
+            <div class="field-row fade-in">
+              <div class="field">
+                <label class="field-label" for="sale-price">Sale proceeds</label>
+                <span class="field-hint">What you sold the asset for</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="sale-price" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="purchase-price">Original cost</label>
+                <span class="field-hint">What you paid for the asset</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="purchase-price" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="allowable-costs">Allowable costs (optional)</label>
+              <span class="field-hint">Buying/selling fees, solicitor costs, improvement costs for property</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="allowable-costs" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="annual-income">Your annual income (salary + other)</label>
+              <span class="field-hint">Used to determine whether gains fall in the basic or higher rate band</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="annual-income" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="exempt-used">Annual exempt amount already used (optional)</label>
+              <span class="field-hint">If you have made other gains this tax year, enter the total already used</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="exempt-used" min="0" max="3000" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Calculate CGT
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <div class="result-hero" id="result-hero-wrap">
+                <div class="result-hero-label">Capital Gains Tax owed</div>
+                <div class="result-hero-value" id="r-cgt-total">£0</div>
+                <div class="result-hero-sub" id="r-effective-cgt">Effective CGT rate: 0%</div>
+              </div>
+
+              <!-- No gain notice -->
+              <div id="no-gain-notice" style="display:none" class="result-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <p><strong>No CGT due.</strong> Your gain is within the £3,000 annual exempt amount, or this disposal results in a loss.</p>
+              </div>
+
+              <!-- Gain summary -->
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Sale proceeds</div>
+                  <div class="result-value" id="r-sale">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Less: original cost</div>
+                  <div class="result-value" id="r-cost">£0</div>
+                </div>
+                <div class="result-row" id="row-costs" style="display:none">
+                  <div class="result-label">Less: allowable costs</div>
+                  <div class="result-value" id="r-costs">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Gross gain</div>
+                  <div class="result-value" id="r-gross-gain">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">
+                    Annual exempt amount
+                    <span class="sublabel" id="sub-exempt"></span>
+                  </div>
+                  <div class="result-value positive" id="r-exempt">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Taxable gain</div>
+                  <div class="result-value accent" id="r-taxable-gain">£0</div>
+                </div>
+              </div>
+
+              <!-- CGT breakdown -->
+              <p id="breakdown-label" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px; display:none">Tax breakdown</p>
+              <div class="result-breakdown" id="cgt-breakdown" style="display:none">
+                <div class="result-row" id="row-basic-cgt" style="display:none">
+                  <div class="result-label">
+                    Basic rate (18%)
+                    <span class="sublabel" id="sub-basic-cgt"></span>
+                  </div>
+                  <div class="result-value" id="r-basic-cgt">£0</div>
+                </div>
+                <div class="result-row" id="row-higher-cgt" style="display:none">
+                  <div class="result-label">
+                    Higher rate (24%)
+                    <span class="sublabel" id="sub-higher-cgt"></span>
+                  </div>
+                  <div class="result-value" id="r-higher-cgt">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Total CGT</div>
+                  <div class="result-value accent" id="r-cgt-total-2">£0</div>
+                </div>
+              </div>
+
+              <div class="result-notice" style="margin-top:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p>This is an estimate. CGT rules are complex and specific reliefs may apply to your situation. Business Asset Disposal Relief, Private Residence Relief, and gift hold-over relief are not included here. Consult a tax adviser for a disposal of significant value.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How Capital Gains Tax is calculated</h2>
+        <div class="prose">
+          <p>
+            Capital Gains Tax is charged on the profit you make when you dispose of an asset that has 
+            increased in value. A disposal includes selling, gifting, transferring, or exchanging an 
+            asset. You do not pay CGT on assets held within an ISA or pension, on your main home 
+            (subject to Private Residence Relief), on ISA holdings, or on certain other exempt assets 
+            such as UK government gilts.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Calculate the gain</h4>
+              <p>The gain is sale proceeds minus the original cost of the asset. You can also deduct allowable costs: buying and selling fees (broker commissions, solicitor fees, stamp duty on purchase), and for property, the cost of capital improvements such as extensions. You cannot deduct maintenance costs or mortgage interest from a CGT calculation.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Deduct the annual exempt amount</h4>
+              <p>Each individual has a £3,000 annual exempt amount for 2025/26, which means the first £3,000 of net gains in the tax year is free from CGT. This cannot be carried forward to future years if unused. If you have made multiple disposals in the same tax year, you need to aggregate the gains and losses before applying the exemption.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Apply the correct rate</h4>
+              <p>The rate depends on your total income for the year. Gains that fall within the unused basic rate band (income below £50,270) are taxed at 18%. Gains that push you into the higher rate band are taxed at 24%. If you are already a higher rate taxpayer, all your gains are taxed at 24%. Note that from October 2024, residential property CGT rates were cut from 18%/28% to 18%/24%, aligning them with other assets.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Report and pay</h4>
+              <p>For residential property disposals, you must report and pay any CGT within 60 days of completion using HMRC's online service. For other assets, CGT is reported via your self assessment return and paid by 31 January following the end of the tax year. If you make a loss on a disposal, you can offset it against gains in the same year or carry it forward to future years.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rates-table-wrap mt-6 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Taxpayer band</th><th>Asset type</th><th>CGT rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Basic rate</td><td>Shares, funds, other assets</td><td class="mono">18%</td></tr>
+              <tr><td>Higher / additional rate</td><td>Shares, funds, other assets</td><td class="mono">24%</td></tr>
+              <tr><td>Basic rate</td><td>Residential property</td><td class="mono">18%</td></tr>
+              <tr><td>Higher / additional rate</td><td>Residential property</td><td class="mono">24%</td></tr>
+              <tr><td>Any rate</td><td>Annual exempt amount</td><td class="mono">0% (first £3,000)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Business Asset Disposal Relief</strong> (formerly Entrepreneurs' Relief) reduces CGT to 14% on qualifying business disposals up to a lifetime limit of £1 million. It applies to sole traders, business partners, and company directors with at least 5% shareholding. This relief is not included in the calculator above and requires separate advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOUR RESULTS MEAN -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Guidance</div>
+        <h2 class="section-heading">What your results mean</h2>
+        <div class="prose">
+          <p>
+            If you sold shares or other non-property assets, the CGT due is reported on your self 
+            assessment return and paid by <strong>31 January</strong> following the end of the tax year. 
+            For 2025/26 gains, that means paying by 31 January 2027.
+          </p>
+          <p>
+            If you sold a <strong>residential property</strong> (other than your main home), the rules 
+            are stricter. You must report and pay CGT within <strong>60 days of completion</strong> using 
+            HMRC's online Capital Gains Tax on UK property service, even if you also file a self 
+            assessment return. Failing to report within 60 days results in automatic penalties.
+          </p>
+          <p>
+            If your disposal resulted in a <strong>loss</strong>, you should still report it to HMRC 
+            so the loss can be registered and carried forward against future gains. Losses do not expire 
+            as long as they are reported within four years of the end of the tax year in which the 
+            disposal occurred.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I pay CGT when I sell my home?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Usually no. Private Residence Relief (PRR) exempts any gain on the disposal of your main home from CGT, provided you lived there throughout the entire period of ownership. If you were absent for periods, for example, letting the property, working abroad, or living elsewhere, only the portion of the gain relating to periods of occupation is exempt. The final nine months of ownership always counts as a period of deemed residence regardless of whether you were actually living there.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I use my spouse's annual exempt amount?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Not directly, but you can transfer assets to a spouse or civil partner before disposal. Transfers between spouses and civil partners who are living together are treated as a no-gain, no-loss disposal, meaning no CGT arises on the transfer itself. The receiving spouse then owns the asset at its original cost and can sell it using their own annual exempt amount and basic rate band. This is one of the most commonly used and legitimate forms of CGT planning for married couples.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How is CGT calculated on shares bought at different prices?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>HMRC uses what is called the Section 104 pool (or share pool) for shares of the same class in the same company. All shares of a given type are pooled together and their total cost is averaged. When you sell some shares, the allowable cost is calculated as a proportional share of the total pool cost. This means you cannot cherry-pick specific lots bought at a higher price to minimise your gain. There are also special rules for shares bought in the 30 days after a sale, known as the bed-and-breakfast rule, which prevents artificial loss creation.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What counts as an allowable cost for property CGT?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Allowable costs for property CGT include: the original purchase price, stamp duty land tax paid on acquisition, solicitor and surveyor fees on purchase and sale, estate agent fees on sale, and capital improvement costs such as extensions, loft conversions, or a new kitchen (where none previously existed). You cannot deduct routine maintenance and repairs, mortgage interest, insurance, or letting agent fees, those are deductible against rental income instead. Keeping records of all capital expenditure from the moment you purchase an investment property is important.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is CGT charged on cryptocurrency?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. HMRC treats cryptocurrency as a capital asset, not as currency. Disposing of crypto, including selling for cash, exchanging one crypto for another, spending it on goods or services, or gifting it (other than to a spouse) is a taxable disposal for CGT purposes. The same pooling rules that apply to shares apply to each type of cryptocurrency. HMRC has increased scrutiny of crypto gains significantly in recent years and has data-sharing agreements with major exchanges. The £3,000 annual exempt amount applies to crypto gains in the same way as any other asset.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="dividend-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Dividend Tax Calculator
+          </a>
+          <a href="inheritance-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Inheritance Tax Calculator
+          </a>
+          <a href="rental-income-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Rental Income Tax Calculator
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    const btn   = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    function calculate() {
+      const assetType    = readSelect('asset-type');
+      const salePrice    = readInput('sale-price');
+      const purchasePrice = readInput('purchase-price');
+      const costs        = readInput('allowable-costs');
+      const income       = readInput('annual-income');
+      const exemptUsed   = Math.min(readInput('exempt-used'), 3000);
+
+      if (salePrice <= 0 && purchasePrice <= 0) return;
+
+      const grossGain     = salePrice - purchasePrice - costs;
+      const exemptRemaining = Math.max(0, 3000 - exemptUsed);
+      const exemptApplied = grossGain > 0 ? Math.min(grossGain, exemptRemaining) : 0;
+      const taxableGain   = Math.max(0, grossGain - exemptApplied);
+
+      // Show/hide no-gain notice
+      const noGain = grossGain <= 0 || taxableGain <= 0;
+      document.getElementById('no-gain-notice').style.display = noGain ? '' : 'none';
+      document.getElementById('breakdown-label').style.display = taxableGain > 0 ? '' : 'none';
+      document.getElementById('cgt-breakdown').style.display = taxableGain > 0 ? '' : 'none';
+
+      // Calculate CGT
+      const pa = getPersonalAllowance(income);
+      const taxableIncome = Math.max(0, income - pa);
+      const basicBandRemaining = Math.max(0, 37700 - taxableIncome);
+
+      let basicGain = 0, higherGain = 0;
+      let basicTax = 0, higherTax = 0;
+
+      if (taxableGain > 0) {
+        basicGain  = Math.min(taxableGain, basicBandRemaining);
+        higherGain = Math.max(0, taxableGain - basicBandRemaining);
+        basicTax   = basicGain * 0.18;
+        higherTax  = higherGain * 0.24;
+      }
+
+      const totalCGT    = basicTax + higherTax;
+      const effectiveRate = grossGain > 0 ? (totalCGT / grossGain) * 100 : 0;
+
+      // DOM updates
+      setText('r-cgt-total', formatCurrency(totalCGT));
+      setText('r-effective-cgt', 'Effective CGT rate: ' + formatPercent(effectiveRate));
+      setText('r-sale', formatCurrency(salePrice));
+      setText('r-cost', formatCurrency(purchasePrice));
+      setText('r-gross-gain', formatCurrency(Math.max(0, grossGain)));
+      setText('r-exempt', formatCurrency(exemptApplied));
+      setText('r-taxable-gain', formatCurrency(taxableGain));
+      setText('r-cgt-total-2', formatCurrency(totalCGT));
+
+      document.getElementById('sub-exempt').textContent =
+        exemptUsed > 0 ? `£${exemptRemaining.toLocaleString('en-GB')} remaining of £3,000` : 'Full £3,000 allowance';
+
+      // Allowable costs row
+      document.getElementById('row-costs').style.display = costs > 0 ? '' : 'none';
+      if (costs > 0) setText('r-costs', formatCurrency(costs));
+
+      // Band rows
+      document.getElementById('row-basic-cgt').style.display = basicGain > 0 ? '' : 'none';
+      document.getElementById('row-higher-cgt').style.display = higherGain > 0 ? '' : 'none';
+      if (basicGain > 0) {
+        setText('r-basic-cgt', formatCurrency(basicTax));
+        setText('sub-basic-cgt', formatCurrency(basicGain) + ' at 18%');
+      }
+      if (higherGain > 0) {
+        setText('r-higher-cgt', formatCurrency(higherTax));
+        setText('sub-higher-cgt', formatCurrency(higherGain) + ' at 24%');
+      }
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); }));
+    document.getElementById('asset-type').addEventListener('change', () => { if (panel.classList.contains('visible')) calculate(); });
+  </script>
+
+</body>
+</html>
