@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dividend Tax Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free dividend tax calculator for 2025/26. Enter your salary and dividend income to see exactly how much tax you owe on dividends, including the £500 allowance and each tax band.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Dividend Tax Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Calculate UK dividend tax for 2025/26. Shows tax at 8.75%, 33.75% and 39.35% across each band, with the £500 dividend allowance applied.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Dividend Tax Calculator UK 2025/26",
+    "description": "Free UK dividend tax calculator for 2025/26. Covers all dividend tax bands including the £500 annual allowance.",
+    "url": "",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link active">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right">
+        <a href="about.html" class="nav-cta">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item active" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#income-tax">Income Tax</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Dividend Tax Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Dividend Tax Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        Dividends are taxed at lower rates than salary, but they are not tax-free. This calculator shows 
+        exactly how much tax you owe on dividend income for the 2025/26 tax year. It accounts for the 
+        £500 dividend allowance, your salary or other income (which determines which band your dividends 
+        fall into), and the three dividend tax rates: 8.75% for basic rate taxpayers, 33.75% for higher 
+        rate, and 39.35% for additional rate. It is particularly useful for company directors, investors, 
+        and anyone who receives income from shares held outside an ISA.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          £500 allowance applied
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          All three bands shown
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Salary interaction included
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Dividend Tax Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 · £500 dividend allowance</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <div class="field fade-in">
+              <label class="field-label" for="salary">Salary / other income (annual, gross)</label>
+              <span class="field-hint">Employment income, self-employment profit, rental income, used to determine your tax band</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="salary" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="dividends">Dividend income (annual, gross)</label>
+              <span class="field-hint">Total dividends received outside of an ISA or pension</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="dividends" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              Calculate dividend tax
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <div class="result-hero">
+                <div class="result-hero-label">Total dividend tax owed</div>
+                <div class="result-hero-value" id="r-total-div-tax">£0</div>
+                <div class="result-hero-sub" id="r-effective-div-rate">Effective dividend tax rate: 0%</div>
+              </div>
+
+              <!-- Dividend allowance -->
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Gross dividends received</div>
+                  <div class="result-value" id="r-gross-divs">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">
+                    Dividend allowance used
+                    <span class="sublabel">Tax-free regardless of band</span>
+                  </div>
+                  <div class="result-value positive" id="r-allowance-used">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Taxable dividends</div>
+                  <div class="result-value" id="r-taxable-divs">£0</div>
+                </div>
+              </div>
+
+              <!-- Band breakdown -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Tax by band</p>
+              <div class="result-breakdown">
+                <div class="result-row" id="row-basic" style="display:none">
+                  <div class="result-label">
+                    Basic rate (8.75%)
+                    <span class="sublabel" id="sub-basic"></span>
+                  </div>
+                  <div class="result-value" id="r-basic-tax">£0</div>
+                </div>
+                <div class="result-row" id="row-higher" style="display:none">
+                  <div class="result-label">
+                    Higher rate (33.75%)
+                    <span class="sublabel" id="sub-higher"></span>
+                  </div>
+                  <div class="result-value" id="r-higher-tax">£0</div>
+                </div>
+                <div class="result-row" id="row-additional" style="display:none">
+                  <div class="result-label">
+                    Additional rate (39.35%)
+                    <span class="sublabel" id="sub-additional"></span>
+                  </div>
+                  <div class="result-value" id="r-additional-tax">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Total dividend tax</div>
+                  <div class="result-value accent" id="r-total-2">£0</div>
+                </div>
+              </div>
+
+              <!-- Taxpayer band context -->
+              <div class="result-notice" id="band-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p id="band-notice-text">Your dividends are taxed based on where they fall in the income tax bands.</p>
+              </div>
+
+              <div class="result-notice" style="margin-top:8px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p>Dividends received inside an ISA or pension are not taxable and should not be included. This calculator does not cover Scottish income tax differences on dividend rates, which are set by Westminster not Holyrood.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How dividend tax is calculated</h2>
+        <div class="prose">
+          <p>
+            Dividend tax works differently to income tax in two important ways. First, dividends benefit 
+            from an annual allowance. The first £500 of dividend income each tax year is completely 
+            tax-free, regardless of how much you earn. Second, dividends are always taxed last, sitting 
+            on top of all your other income. This means your salary determines which tax bands are 
+            available for your dividends, not the other way around.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Stack your income in the right order</h4>
+              <p>HMRC treats different income types in a specific order. Non-savings income (salary, self-employment, rental) uses up the personal allowance and lower rate bands first. Dividends are placed on top. This means if your salary already takes you into the higher rate band, all your dividends will be taxed at 33.75% or higher.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Apply the £500 dividend allowance</h4>
+              <p>The first £500 of dividend income is tax-free. This allowance is used regardless of which band your dividends fall into; it applies before any rate is charged. The allowance was £2,000 in 2022/23, cut to £1,000 in 2023/24, and reduced again to £500 for 2024/25 onwards. It is separate from the personal allowance.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Apply the correct rate to remaining dividends</h4>
+              <p>After the allowance, dividends are taxed at 8.75% if they fall within the basic rate band (up to £50,270 total income), 33.75% in the higher rate band (£50,271 to £125,140), and 39.35% in the additional rate band (above £125,140). A single dividend payment can span multiple bands.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Pay via self assessment</h4>
+              <p>Dividend tax is not collected at source. You report it on your self assessment return and pay it by 31 January following the end of the tax year. If your dividend income is small (under £10,000 and you are not otherwise required to file), HMRC may collect the tax by adjusting your PAYE tax code instead.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rates-table-wrap mt-6 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Dividend band</th><th>Income threshold</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Dividend allowance</td><td class="mono">First £500</td><td class="mono">0%</td></tr>
+              <tr><td>Basic rate</td><td class="mono">Within basic rate band (up to £50,270 total)</td><td class="mono">8.75%</td></tr>
+              <tr><td>Higher rate</td><td class="mono">£50,271 to £125,140 total</td><td class="mono">33.75%</td></tr>
+              <tr><td>Additional rate</td><td class="mono">Over £125,140 total</td><td class="mono">39.35%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>ISA dividends are completely tax-free:</strong> Dividends received from shares held within a Stocks and Shares ISA do not count towards your £500 allowance and are never taxable. If you are a regular dividend investor, holding shares inside an ISA is the most efficient structure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOUR RESULTS MEAN -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Guidance</div>
+        <h2 class="section-heading">What your results mean</h2>
+        <div class="prose">
+          <p>
+            The dividend tax figure shown is the amount you owe HMRC for 2025/26. This is reported on 
+            your self assessment return and paid by <strong>31 January 2027</strong>. Unlike PAYE tax on 
+            salary, nothing is withheld at source when dividends are paid. The full gross amount lands 
+            in your account and you settle up with HMRC later.
+          </p>
+          <p>
+            If your only untaxed income is dividends under £10,000 and you do not otherwise need to file 
+            a return, HMRC can collect the tax by adjusting your PAYE tax code. This spreads the payment 
+            across the following tax year rather than requiring a lump sum. Contact HMRC or log into your 
+            Government Gateway account to arrange this.
+          </p>
+          <p>
+            If you are a company director taking a combination of salary and dividends, the 
+            <a href="salary-vs-dividends-calculator.html">Salary vs Dividends Calculator</a> will help 
+            you find the most tax-efficient split, factoring in corporation tax and National Insurance 
+            as well as income tax.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I pay tax on dividends from my own company?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Dividends paid by your own limited company are taxed in exactly the same way as dividends from any other source. The company pays corporation tax on its profits first, and then the dividend is paid from post-tax profits. When you receive it, you pay dividend tax at the applicable rate above the £500 allowance. This is still usually more efficient than taking the same amount as salary, because the combined corporation tax and dividend tax rate is lower than income tax plus NI on salary at the same level.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Why did the dividend allowance drop to £500?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>The allowance was progressively cut as part of a broader government effort to reduce the tax advantages of incorporation and bring the tax treatment of dividend income closer to employment income. It started at £5,000 in 2016/17, was cut to £2,000 in 2018/19, dropped to £1,000 for 2023/24, and fell again to £500 from 2024/25. For investors with moderate shareholdings outside an ISA, this reduction has noticeably increased tax bills, making ISA and pension wrappers even more valuable.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Are dividends from foreign companies taxed the same way?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Generally yes, the same UK dividend tax rules apply to foreign dividends received by UK residents. However, foreign companies often withhold tax at source before paying the dividend, and you may be able to claim relief for this withholding tax against your UK liability under a double tax treaty. The gross dividend (before overseas withholding) is what you report on your return, and any credit for foreign tax paid is applied separately. If you hold foreign shares in an ISA, the withholding tax position depends on the country, but there is no further UK tax.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I avoid dividend tax by reinvesting dividends?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>No. Whether dividends are paid in cash or reinvested (for example through a Dividend Reinvestment Plan, or DRIP), they are still taxable in the year they are received. The reinvested amount is treated as income and then immediately treated as a new investment. The only way to avoid dividend tax entirely is to hold the shares inside a Stocks and Shares ISA or Self-Invested Personal Pension (SIPP), where dividends are received free of UK income tax.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I report dividend income on my tax return?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Dividend income is reported in the Dividends section of your self assessment return (SA100). You enter the total gross dividend income received during the tax year from all sources: UK and overseas shares, investment trusts, and ETFs held outside an ISA. Your broker or share registrar will issue a tax certificate or consolidated tax voucher summarising your dividends for the year. For dividends from your own company, you should have issued dividend vouchers for each payment made.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="self-assessment-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Self Assessment Calculator
+          </a>
+          <a href="salary-vs-dividends-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Salary vs Dividends Calculator
+          </a>
+          <a href="cgt-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Capital Gains Tax Calculator
+          </a>
+          <a href="ir35-checker.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            IR35 Status Checker
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    // ============================================================
+    // DIVIDEND TAX CALCULATOR
+    // ============================================================
+
+    const btn   = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    function calculate() {
+      const salary   = readInput('salary');
+      const divs     = readInput('dividends');
+
+      if (divs <= 0) {
+        panel.classList.add('visible');
+        setText('r-total-div-tax', formatCurrency(0));
+        return;
+      }
+
+      const ALLOWANCE = 500;
+      const allowanceUsed = Math.min(divs, ALLOWANCE);
+      const taxableDivs   = Math.max(0, divs - ALLOWANCE);
+
+      // Work out how much basic rate band is left after salary
+      const pa = getPersonalAllowance(salary + divs);
+      const taxableOther = Math.max(0, salary - pa);
+      const basicBandUsed = Math.min(taxableOther, 37700);
+      const basicBandLeft = Math.max(0, 37700 - basicBandUsed);
+
+      let remaining = taxableDivs;
+      let basicTax = 0, higherTax = 0, additionalTax = 0;
+      let basicIncome = 0, higherIncome = 0, additionalIncome = 0;
+
+      // Basic rate band
+      basicIncome = Math.min(remaining, basicBandLeft);
+      if (basicIncome > 0) {
+        basicTax = basicIncome * 0.0875;
+        remaining -= basicIncome;
+      }
+
+      // Higher rate band (£50,270 to £125,140 = £74,870 wide)
+      const higherBandCapacity = 74870;
+      higherIncome = Math.min(remaining, higherBandCapacity);
+      if (higherIncome > 0) {
+        higherTax = higherIncome * 0.3375;
+        remaining -= higherIncome;
+      }
+
+      // Additional rate
+      if (remaining > 0) {
+        additionalIncome = remaining;
+        additionalTax = remaining * 0.3935;
+      }
+
+      const totalDivTax = basicTax + higherTax + additionalTax;
+      const effectiveRate = divs > 0 ? (totalDivTax / divs) * 100 : 0;
+
+      // Band determination notice
+      let bandText = '';
+      if (salary + divs <= 12570) {
+        bandText = 'Your total income is within the personal allowance. No tax is due on any income.';
+      } else if (salary >= 125140) {
+        bandText = 'Your salary alone exceeds £125,140, so all dividends fall in the additional rate band at 39.35%.';
+      } else if (salary >= 50270) {
+        bandText = 'Your salary exceeds £50,270, so your dividends are taxed at the higher rate (33.75%) or above.';
+      } else {
+        bandText = 'Your salary uses up part of the basic rate band. Dividends fill the remaining space at 8.75%, then spill into higher bands if applicable.';
+      }
+
+      // Update DOM
+      setText('r-total-div-tax', formatCurrency(totalDivTax));
+      setText('r-effective-div-rate', 'Effective dividend tax rate: ' + formatPercent(effectiveRate));
+      setText('r-gross-divs', formatCurrency(divs));
+      setText('r-allowance-used', formatCurrency(allowanceUsed));
+      setText('r-taxable-divs', formatCurrency(taxableDivs));
+      setText('r-total-2', formatCurrency(totalDivTax));
+      setText('band-notice-text', bandText);
+
+      // Band rows
+      document.getElementById('row-basic').style.display = basicIncome > 0 ? '' : 'none';
+      if (basicIncome > 0) {
+        setText('r-basic-tax', formatCurrency(basicTax));
+        setText('sub-basic', formatCurrency(basicIncome) + ' at 8.75%');
+      }
+
+      document.getElementById('row-higher').style.display = higherIncome > 0 ? '' : 'none';
+      if (higherIncome > 0) {
+        setText('r-higher-tax', formatCurrency(higherTax));
+        setText('sub-higher', formatCurrency(higherIncome) + ' at 33.75%');
+      }
+
+      document.getElementById('row-additional').style.display = additionalIncome > 0 ? '' : 'none';
+      if (additionalIncome > 0) {
+        setText('r-additional-tax', formatCurrency(additionalTax));
+        setText('sub-additional', formatCurrency(additionalIncome) + ' at 39.35%');
+      }
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => {
+      i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+      i.addEventListener('input', () => { if (panel.classList.contains('visible')) calculate(); });
+    });
+  </script>
+
+</body>
+</html>

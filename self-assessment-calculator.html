@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Self Assessment Tax Calculator UK 2025/26 | Tax Toolkit UK</title>
+  <meta name="description" content="Free self assessment tax calculator for 2025/26. Enter employment, self-employment, rental, savings and dividend income to calculate your total tax bill and payments on account.">
+  <!-- <link rel="canonical" href=""> add domain before go-live -->
+
+  <meta property="og:title" content="Self Assessment Tax Calculator UK 2025/26 | Tax Toolkit UK">
+  <meta property="og:description" content="Calculate your self assessment tax bill for 2025/26. Covers all income types, NI, payments on account, and balance owed.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Self Assessment Tax Calculator UK 2025/26",
+    "description": "Free UK self assessment tax calculator covering employment, self-employment, rental, savings and dividend income for the 2025/26 tax year.",
+    "url": "",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tax Toolkit UK home">
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="nav-logo-text">Tax Toolkit <span>United Kingdom</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#income-tax" class="nav-link active">Income Tax</a>
+        <a href="index.html#business" class="nav-link">Business</a>
+        <a href="index.html#salary-benefits" class="nav-link">Salary &amp; Benefits</a>
+        <a href="index.html#property" class="nav-link">Property &amp; Capital</a>
+      </div>
+      <div class="nav-right">
+        <a href="about.html" class="nav-cta">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="index.html" class="mobile-nav-item" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="index.html#income-tax" class="mobile-nav-item active" aria-label="Income Tax">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Income
+      </a>
+      <a href="index.html#business" class="mobile-nav-item" aria-label="Business">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Business
+      </a>
+      <a href="index.html#salary-benefits" class="mobile-nav-item" aria-label="Benefits">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+        Benefits
+      </a>
+      <a href="index.html#property" class="mobile-nav-item" aria-label="Property">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 0-2-2z"/></svg>
+        Property
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="index.html#income-tax">Income Tax</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Self Assessment Calculator</span>
+      </nav>
+      <div class="hero-eyebrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Updated for 2025/26
+      </div>
+      <h1 class="hero-title">Self Assessment Tax Calculator UK 2025/26</h1>
+      <p class="hero-desc">
+        If you receive income outside of PAYE, you need to submit a self assessment tax return each January. 
+        This calculator works out your total tax liability across all income types: employment, self-employment, 
+        rental property, savings interest, and dividends. It also estimates your payments on account for the 
+        following tax year, which HMRC requires if your tax bill exceeds £1,000 and less than 80% was collected 
+        at source. Whether you are a sole trader, landlord, freelancer, or director taking dividends, enter 
+        your figures below to see a full breakdown of what you owe for 2025/26.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          All income types
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Payments on account included
+        </span>
+        <span class="hero-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Scottish rates supported
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content">
+
+    <!-- CALCULATOR -->
+    <section class="tool-section">
+      <div class="container--tool">
+        <div class="calc-widget">
+
+          <div class="calc-header">
+            <div class="calc-header-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="calc-header-title">Self Assessment Tax Calculator</div>
+              <div class="calc-header-sub">Tax year 2025/26 (6 April 2025 to 5 April 2026)</div>
+            </div>
+          </div>
+
+          <div class="calc-body">
+
+            <!-- Tax region -->
+            <div class="field fade-in">
+              <label class="field-label" for="tax-region">Tax region</label>
+              <select class="select" id="tax-region">
+                <option value="england">England, Wales or Northern Ireland</option>
+                <option value="scotland">Scotland</option>
+              </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Income inputs -->
+            <div style="margin-bottom: 4px;">
+              <p style="font-size: 0.8125rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em;">Your income (annual, gross)</p>
+            </div>
+
+            <div class="field-row fade-in">
+              <div class="field">
+                <label class="field-label" for="employment-income">Employment income</label>
+                <span class="field-hint">Gross salary before tax and NI</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="employment-income" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="se-profit">Self-employment profit</label>
+                <span class="field-hint">Net profit after allowable expenses</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="se-profit" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row fade-in">
+              <div class="field">
+                <label class="field-label" for="rental-income">Rental income profit</label>
+                <span class="field-hint">After allowable expenses, pre-tax</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="rental-income" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="savings-interest">Savings interest</label>
+                <span class="field-hint">Gross interest received</span>
+                <div class="input-wrap">
+                  <span class="input-prefix" aria-hidden="true">£</span>
+                  <input class="input has-prefix" type="number" id="savings-interest" min="0" step="1" placeholder="0" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+            <div class="field fade-in">
+              <label class="field-label" for="dividend-income">Dividend income</label>
+              <span class="field-hint">Gross dividends received (excluding any tax-free ISA dividends)</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="dividend-income" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- PAYE already paid -->
+            <div class="field fade-in">
+              <label class="field-label" for="tax-paid">Tax already paid via PAYE</label>
+              <span class="field-hint">From your P60 or payslips. Leave blank if none.</span>
+              <div class="input-wrap">
+                <span class="input-prefix" aria-hidden="true">£</span>
+                <input class="input has-prefix" type="number" id="tax-paid" min="0" step="1" placeholder="0" inputmode="numeric">
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg fade-in" id="calculate-btn" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="11" y2="14"/></svg>
+              Calculate my tax bill
+            </button>
+
+            <!-- RESULTS -->
+            <div class="results-panel" id="results-panel" aria-live="polite">
+
+              <div class="result-hero">
+                <div class="result-hero-label">Total tax and NI liability</div>
+                <div class="result-hero-value" id="r-total-liability">£0</div>
+                <div class="result-hero-sub" id="r-effective-rate">Effective rate: 0%</div>
+              </div>
+
+              <!-- Income summary -->
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Total gross income</div>
+                  <div class="result-value" id="r-gross-income">£0</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Personal allowance</div>
+                  <div class="result-value" id="r-personal-allowance">£12,570</div>
+                </div>
+                <div class="result-row">
+                  <div class="result-label">Taxable income</div>
+                  <div class="result-value" id="r-taxable-income">£0</div>
+                </div>
+              </div>
+
+              <!-- Tax breakdown -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Tax breakdown</p>
+              <div class="result-breakdown">
+                <div class="result-row" id="row-income-tax">
+                  <div class="result-label">Income tax</div>
+                  <div class="result-value" id="r-income-tax">£0</div>
+                </div>
+                <div class="result-row" id="row-employee-ni" style="display:none">
+                  <div class="result-label">Employee NI (Class 1)</div>
+                  <div class="result-value" id="r-employee-ni">£0</div>
+                </div>
+                <div class="result-row" id="row-class4-ni" style="display:none">
+                  <div class="result-label">Class 4 NI (self-employed)</div>
+                  <div class="result-value" id="r-class4-ni">£0</div>
+                </div>
+                <div class="result-row" id="row-dividend-tax" style="display:none">
+                  <div class="result-label">Dividend tax</div>
+                  <div class="result-value" id="r-dividend-tax">£0</div>
+                </div>
+                <div class="result-row total">
+                  <div class="result-label">Total liability</div>
+                  <div class="result-value accent" id="r-total-tax-2">£0</div>
+                </div>
+              </div>
+
+              <!-- What you owe -->
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Self assessment return</p>
+              <div class="result-breakdown">
+                <div class="result-row">
+                  <div class="result-label">Tax already paid (PAYE)</div>
+                  <div class="result-value" id="r-paye-paid">£0</div>
+                </div>
+                <div class="result-row total" id="row-balance">
+                  <div class="result-label" id="balance-label">Balance owed to HMRC</div>
+                  <div class="result-value" id="r-balance">£0</div>
+                </div>
+              </div>
+
+              <!-- Payments on account -->
+              <div id="poa-section" style="display:none">
+                <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 16px 0 8px;">Payments on account (estimate)</p>
+                <div class="result-breakdown">
+                  <div class="result-row">
+                    <div class="result-label">
+                      1st payment on account
+                      <span class="sublabel">Due 31 January 2027</span>
+                    </div>
+                    <div class="result-value" id="r-poa-1">£0</div>
+                  </div>
+                  <div class="result-row">
+                    <div class="result-label">
+                      2nd payment on account
+                      <span class="sublabel">Due 31 July 2027</span>
+                    </div>
+                    <div class="result-value" id="r-poa-2">£0</div>
+                  </div>
+                  <div class="result-row total">
+                    <div class="result-label">Total January payment (balance + 1st POA)</div>
+                    <div class="result-value accent" id="r-jan-total">£0</div>
+                  </div>
+                </div>
+                <div class="result-notice">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <p>Payments on account are based on this year's non-PAYE tax bill. If your income changes significantly, you can apply to reduce them via your HMRC online account.</p>
+                </div>
+              </div>
+
+              <div class="result-notice" style="margin-top: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p>This is an estimate based on 2025/26 HMRC rates. It does not account for all reliefs, allowances, or your specific circumstances. Always verify with HMRC or a qualified accountant.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explained</div>
+        <h2 class="section-heading">How the self assessment calculation works</h2>
+        <div class="prose">
+          <p>
+            HMRC calculates your self assessment bill by adding together all your taxable income, 
+            deducting your personal allowance, and then applying the relevant tax rates to what remains. 
+            Different types of income are taxed in a specific order: non-savings income first (employment, 
+            self-employment, rental), then savings interest, then dividends. This matters because dividends 
+            attract lower rates but are taxed last, which means they sit on top of your other income when 
+            determining which band they fall into.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Add up all income sources</h4>
+              <p>Total gross income includes your employment salary, self-employment net profit, rental profit after allowable expenses, gross savings interest, and gross dividends. If your income exceeds £100,000, your personal allowance tapers by £1 for every £2 over that threshold, disappearing entirely at £125,140.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Apply income tax bands</h4>
+              <p>After deducting the personal allowance, income is taxed at 20% (basic rate), 40% (higher rate above £50,270), and 45% (additional rate above £125,140). Scottish taxpayers have different rates and bands, including a 19% starter rate and 21% intermediate rate. Savings income benefits from a personal savings allowance of £500 for higher rate taxpayers or £1,000 for basic rate payers.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Calculate National Insurance</h4>
+              <p>Employee NI applies to employment income at 8% between £12,570 and £50,270, and 2% above that. Self-employed Class 4 NI applies to profits at 6% between £12,570 and £50,270, and 2% above. There is no NI on rental income, savings interest, or dividends.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Deduct tax already paid</h4>
+              <p>If you receive a salary, your employer will have deducted income tax and employee NI through PAYE. The self assessment return reconciles the full liability against what was collected. Any shortfall is the balance owed; any excess is refunded.</p>
+            </div>
+          </div>
+          <div class="step fade-in">
+            <div class="step-num" aria-hidden="true">5</div>
+            <div class="step-content">
+              <h4>Payments on account</h4>
+              <p>If the tax not collected at source exceeds £1,000 and represents more than 20% of your total bill, HMRC requires you to make advance payments towards next year's liability. Each payment on account is 50% of this year's non-PAYE tax bill, due on 31 January and 31 July.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rates-table-wrap mt-6 fade-in">
+          <table class="rates-table">
+            <thead>
+              <tr><th>Band (England, Wales, NI)</th><th>Income</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Personal allowance</td><td class="mono">Up to £12,570</td><td class="mono">0%</td></tr>
+              <tr><td>Basic rate</td><td class="mono">£12,571 to £50,270</td><td class="mono">20%</td></tr>
+              <tr><td>Higher rate</td><td class="mono">£50,271 to £125,140</td><td class="mono">40%</td></tr>
+              <tr><td>Additional rate</td><td class="mono">Over £125,140</td><td class="mono">45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout fade-in">
+          <p><strong>Personal allowance taper:</strong> If your income exceeds £100,000, you lose £1 of personal allowance for every £2 earned above that figure. At £125,140 the personal allowance is nil, which creates an effective 60% marginal tax rate on income between £100,000 and £125,140. Pension contributions or Gift Aid donations can reduce your adjusted net income and restore some or all of your allowance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOUR RESULTS MEAN -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Guidance</div>
+        <h2 class="section-heading">What your results mean</h2>
+        <div class="prose">
+          <p>
+            The <strong>balance owed to HMRC</strong> is the figure that appears on your self assessment 
+            statement after the return is processed. This must be paid by <strong>31 January</strong> following 
+            the end of the tax year. For 2025/26 income, the payment deadline is 31 January 2027. 
+            If you miss this date, HMRC charges a 5% late payment penalty on top of daily interest.
+          </p>
+          <p>
+            The <strong>payments on account</strong> figures are advance payments towards your 2026/27 tax 
+            bill. The first is due on 31 January 2027 (at the same time as your balancing payment), and the 
+            second on 31 July 2027. If you expect your income to be lower next year, you can apply to reduce 
+            them through your HMRC online account. If you reduce them incorrectly, HMRC will charge interest 
+            on the underpayment.
+          </p>
+          <p>
+            If the calculator shows a <strong>refund</strong>, this means more tax was deducted through 
+            PAYE than was actually owed. HMRC will repay this after your return is processed, usually within 
+            a few weeks. You can also request the refund to be offset against a future payment on account.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Common questions</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I need to submit a self assessment return?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>You must register for self assessment if any of the following apply: you are self-employed with profits over £1,000; you received rental income; you have untaxed income over £2,500; you received dividends and are a higher or additional rate taxpayer; your income exceeded £100,000; or you received income from abroad. HMRC also requires a return if you claimed certain reliefs or had Capital Gains. The deadline to register for the 2025/26 tax year is 5 October 2026.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What are the self assessment deadlines?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>For the 2025/26 tax year, there are three key dates. 31 October 2026 is the deadline for paper returns. 31 January 2027 is the deadline for online returns and for paying any balance owed plus your first payment on account. 31 July 2027 is the deadline for your second payment on account. Missing the January deadline triggers an automatic £100 penalty even if no tax is owed, rising to further penalties after three and six months.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Why does my income between £100,000 and £125,140 feel taxed so heavily?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>This is the personal allowance taper trap. For every £2 you earn over £100,000, you lose £1 of your £12,570 personal allowance. This means the income in this band is effectively taxed at 60%: 40% income tax plus the benefit of losing the allowance. Making pension contributions or charitable donations via Gift Aid can reduce your adjusted net income below £100,000 and restore your full allowance, which is one of the most valuable tax planning opportunities available.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I reduce my payments on account if my income drops?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. If you believe your next year's tax bill will be lower than the current year, you can apply to reduce your payments on account by logging into your HMRC online account and completing form SA303. You need a reasonable basis for the reduction, for example, you have stopped trading, your rental income has dropped, or you have made a large pension contribution. If you reduce them by too much, HMRC will charge interest on any underpayment when the actual bill is known.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How is rental income taxed differently from employment income?
+              <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <p>Rental income is subject to income tax but not National Insurance. You enter your net rental profit after deducting allowable expenses such as letting agent fees, maintenance costs, insurance, and ground rent. Mortgage interest is no longer fully deductible. Under Section 24 rules, you instead receive a 20% tax credit on finance costs. This means higher and additional rate landlords pay more tax than they did previously. The rental income is added to your other income and taxed at your marginal rate, which means it is often taxed at 40% or 45% if you have significant other earnings.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="content-section">
+      <div class="container--narrow">
+        <div class="section-tag">Explore</div>
+        <h2 class="section-heading">Related calculators</h2>
+        <div class="related-grid">
+          <a href="dividend-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Dividend Tax Calculator
+          </a>
+          <a href="cgt-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Capital Gains Tax Calculator
+          </a>
+          <a href="rental-income-tax-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Rental Income Tax Calculator
+          </a>
+          <a href="salary-vs-dividends-calculator.html" class="related-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Salary vs Dividends Calculator
+          </a>
+        </div>
+        <p class="disclaimer">Tax Toolkit UK provides free calculators for guidance purposes only. Results are estimates based on HMRC rates for the 2025/26 tax year. Individual circumstances vary. Always consult a qualified tax adviser before making financial decisions.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="footer-logo-text">Tax Toolkit UK</div>
+          </div>
+          <p class="footer-desc">Free UK tax calculators built on HMRC's official rates. Updated every April for the new tax year.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Income Tax</div>
+          <div class="footer-links">
+            <a href="self-assessment-calculator.html" class="footer-link">Self Assessment</a>
+            <a href="dividend-tax-calculator.html" class="footer-link">Dividend Tax</a>
+            <a href="cgt-calculator.html" class="footer-link">Capital Gains Tax</a>
+            <a href="marriage-allowance-calculator.html" class="footer-link">Marriage Allowance</a>
+            <a href="tax-code-checker.html" class="footer-link">Tax Code Checker</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Business</div>
+          <div class="footer-links">
+            <a href="ir35-checker.html" class="footer-link">IR35 Checker</a>
+            <a href="salary-vs-dividends-calculator.html" class="footer-link">Salary vs Dividends</a>
+            <a href="vat-threshold-calculator.html" class="footer-link">VAT Threshold</a>
+            <a href="employer-cost-calculator.html" class="footer-link">Employer Costs</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">More Tools</div>
+          <div class="footer-links">
+            <a href="salary-sacrifice-calculator.html" class="footer-link">Salary Sacrifice</a>
+            <a href="pension-calculator.html" class="footer-link">Pension Calculator</a>
+            <a href="inheritance-tax-calculator.html" class="footer-link">Inheritance Tax</a>
+            <a href="rental-income-tax-calculator.html" class="footer-link">Rental Income</a>
+          </div>
+          <div class="footer-col-title" style="margin-top:20px">Site</div>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Tax Toolkit UK. All rights reserved.</p>
+        <p class="footer-tax-notice">For guidance only. Not professional tax advice. Verify with HMRC or a qualified accountant.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="utils.js"></script>
+  <script>
+    // ============================================================
+    // SELF ASSESSMENT CALCULATOR
+    // ============================================================
+
+    const btn = document.getElementById('calculate-btn');
+    const panel = document.getElementById('results-panel');
+
+    function calculate() {
+      const scotland  = document.getElementById('tax-region').value === 'scotland';
+      const empIncome = readInput('employment-income');
+      const seProfit  = readInput('se-profit');
+      const rental    = readInput('rental-income');
+      const savings   = readInput('savings-interest');
+      const divs      = readInput('dividend-income');
+      const payePaid  = readInput('tax-paid');
+
+      const totalIncome = empIncome + seProfit + rental + savings + divs;
+      if (totalIncome <= 0) {
+        panel.classList.add('visible');
+        setText('r-gross-income', formatCurrency(0));
+        setText('r-total-liability', formatCurrency(0));
+        return;
+      }
+
+      // Personal allowance (tapered above £100k based on non-savings + savings income, excl divs for taper calc)
+      const incomeForTaper = empIncome + seProfit + rental + savings + divs;
+      const pa = getPersonalAllowance(incomeForTaper);
+
+      // ---- INCOME TAX ----
+      // Non-savings taxable income (employment + SE + rental)
+      const nonSavingsGross = empIncome + seProfit + rental;
+      const nonSavingsTaxable = Math.max(0, nonSavingsGross - pa);
+
+      // Remaining PA after non-savings
+      const paUsedByNonSavings = Math.min(pa, nonSavingsGross);
+      const paRemainingForSavings = Math.max(0, pa - paUsedByNonSavings);
+
+      // Savings taxable
+      const savingsTaxable = Math.max(0, savings - paRemainingForSavings);
+
+      // Dividends (taxed last, use remaining PA)
+      const paRemainingForDivs = Math.max(0, paRemainingForSavings - Math.min(savings, paRemainingForSavings));
+      const divTaxable = Math.max(0, divs - paRemainingForDivs);
+
+      // Get income tax on non-savings + savings combined (simplified: treat as one pool for band calc)
+      const { totalTax: incomeTax } = calcIncomeTax(nonSavingsGross + savings, scotland);
+
+      // Dividend tax
+      const { tax: dividendTax } = calcDividendTax(divs, nonSavingsGross + savings, scotland);
+
+      // ---- NI ----
+      const employeeNI = calcEmployeeNI(empIncome);
+      const class4NI   = calcClass4NI(seProfit);
+
+      const totalTax      = incomeTax + dividendTax;
+      const totalLiability = totalTax + employeeNI + class4NI;
+      const balance       = totalLiability - payePaid;
+      const effectiveRate = totalIncome > 0 ? (totalLiability / totalIncome) * 100 : 0;
+
+      // Payments on account - based on non-PAYE tax: SE + rental + savings + div tax + class4
+      // Excludes employee NI (that's PAYE) and tax already collected
+      const nonPayeTax = totalLiability - payePaid - employeeNI;
+      const poaApplies = nonPayeTax >= 1000;
+      const poa = nonPayeTax / 2;
+
+      // ---- UPDATE DOM ----
+      setText('r-total-liability', formatCurrency(totalLiability));
+      setText('r-effective-rate', 'Effective rate: ' + formatPercent(effectiveRate));
+      setText('r-gross-income', formatCurrency(totalIncome));
+      setText('r-personal-allowance', formatCurrency(pa));
+      setText('r-taxable-income', formatCurrency(Math.max(0, totalIncome - pa)));
+      setText('r-income-tax', formatCurrency(incomeTax));
+      setText('r-total-tax-2', formatCurrency(totalLiability));
+      setText('r-paye-paid', formatCurrency(payePaid));
+
+      // NI rows
+      const showEmpNI = empIncome > 0;
+      const showClass4 = seProfit > 0;
+      document.getElementById('row-employee-ni').style.display = showEmpNI ? '' : 'none';
+      document.getElementById('row-class4-ni').style.display = showClass4 ? '' : 'none';
+      if (showEmpNI) setText('r-employee-ni', formatCurrency(employeeNI));
+      if (showClass4) setText('r-class4-ni', formatCurrency(class4NI));
+
+      // Dividend tax row
+      document.getElementById('row-dividend-tax').style.display = divs > 0 ? '' : 'none';
+      if (divs > 0) setText('r-dividend-tax', formatCurrency(dividendTax));
+
+      // Balance
+      const balanceEl = document.getElementById('r-balance');
+      const balanceLabelEl = document.getElementById('balance-label');
+      if (balance >= 0) {
+        balanceEl.textContent = formatCurrency(balance);
+        balanceEl.className = 'result-value accent';
+        balanceLabelEl.textContent = 'Balance owed to HMRC';
+      } else {
+        balanceEl.textContent = formatCurrency(Math.abs(balance));
+        balanceEl.className = 'result-value positive';
+        balanceLabelEl.textContent = 'Refund due from HMRC';
+      }
+
+      // Payments on account
+      document.getElementById('poa-section').style.display = poaApplies && balance > 0 ? '' : 'none';
+      if (poaApplies && balance > 0) {
+        setText('r-poa-1', formatCurrency(poa));
+        setText('r-poa-2', formatCurrency(poa));
+        setText('r-jan-total', formatCurrency(balance + poa));
+      }
+
+      panel.classList.add('visible');
+      if (window.innerWidth < 768) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    btn.addEventListener('click', calculate);
+    document.querySelectorAll('.input').forEach(i => i.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); }));
+    document.getElementById('tax-region').addEventListener('change', () => { if (panel.classList.contains('visible')) calculate(); });
+  </script>
+
+</body>
+</html>
