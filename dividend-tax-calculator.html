@@ -104,6 +104,26 @@
   ]
 }
 </script>
+<!-- GA4 consent-gated loader -->
+<script>
+(function(){
+  function loadGA(){
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-NDJM8GSFTM';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;
+    gtag('js',new Date());
+    gtag('config','G-NDJM8GSFTM');
+  }
+  try{
+    if(localStorage.getItem('tt-cookie')==='accepted'){loadGA();}
+  }catch(e){}
+  window.__ttLoadGA=loadGA;
+})();
+</script>
 </head>
 <body>
 
@@ -657,5 +677,43 @@
     });
   </script>
 
+<!-- Cookie consent banner -->
+<div id="tt-banner" style="display:none" role="dialog" aria-label="Cookie consent">
+<style>
+#tt-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:16px 20px;background:#fff;border-top:2px solid #e5e7eb;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;font-size:0.85rem;color:#374151;box-shadow:0 -4px 24px rgba(0,0,0,0.08)}
+#tt-banner p{margin:0;flex:1;min-width:200px;line-height:1.5}
+#tt-banner a{color:#3730a3;text-decoration:none}
+#tt-banner a:hover{text-decoration:underline}
+.tt-btns{display:flex;gap:8px;flex-shrink:0}
+.tt-btn{padding:8px 20px;border-radius:6px;font-size:0.85rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:opacity 0.15s}
+.tt-btn-accept{background:#3730a3;color:#fff}
+.tt-btn-accept:hover{opacity:0.88}
+.tt-btn-decline{background:transparent;color:#6b7280;border:1px solid #e5e7eb}
+.tt-btn-decline:hover{color:#111827;border-color:#d1d5db}
+@media(max-width:480px){#tt-banner{padding:14px 16px}.tt-btns{width:100%}.tt-btn{flex:1;text-align:center}}
+</style>
+<p>We use cookies to understand how people use Tax Toolkit UK via Google Analytics. No personal data is sold or shared. <a href="/privacy.html">Privacy policy</a></p>
+<div class="tt-btns">
+  <button class="tt-btn tt-btn-decline" id="tt-decline">Decline</button>
+  <button class="tt-btn tt-btn-accept" id="tt-accept">Accept</button>
+</div>
+</div>
+<script>
+(function(){
+  try{
+    var pref=localStorage.getItem('tt-cookie');
+    if(!pref){document.getElementById('tt-banner').style.display='flex';}
+    document.getElementById('tt-accept').addEventListener('click',function(){
+      localStorage.setItem('tt-cookie','accepted');
+      document.getElementById('tt-banner').style.display='none';
+      if(window.__ttLoadGA)window.__ttLoadGA();
+    });
+    document.getElementById('tt-decline').addEventListener('click',function(){
+      localStorage.setItem('tt-cookie','declined');
+      document.getElementById('tt-banner').style.display='none';
+    });
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
