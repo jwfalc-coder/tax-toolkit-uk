@@ -146,9 +146,9 @@ No dark mode. Light only. This is intentional and must not be changed.
 - [ ] Privacy policy update (once AdSense publisher ID confirmed)
 
 ### Content
-- [ ] FAQPage schema on all 14 tool pages (high SEO priority - rich results)
-- [ ] BreadcrumbList schema on all 14 tool pages
-- [ ] `llms.txt` file in root
+- [x] FAQPage schema -- all 14 tool pages
+- [x] BreadcrumbList schema -- all 14 tool pages
+- [x] `llms.txt` file in root
 
 ### Performance
 - [ ] PageSpeed Insights audit after DNS propagation
