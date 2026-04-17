@@ -163,10 +163,30 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      // TODO before go-live: add Formspree endpoint to form action attribute
-      // and remove this preventDefault, or implement with fetch() to Formspree API
-      document.getElementById('form-success').style.display = '';
-      this.style.display = 'none';
+      var form = this;
+      var btn = form.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch('https://formspree.io/f/mjgjwgwg', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = '';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+          alert('Something went wrong. Please email hello@taxtoolkit.uk directly.');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+        alert('Something went wrong. Please email hello@taxtoolkit.uk directly.');
+      });
     });
   </script>
 </body>
