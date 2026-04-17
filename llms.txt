@@ -1,0 +1,39 @@
+# Tax Toolkit UK
+> Free UK tax calculators for 2025/26. All figures use current HMRC rates.
+> Independently operated. Not financial advice.
+
+## About
+Tax Toolkit UK provides 14 free tax calculators across 4 categories covering income tax, self assessment, business tax, salary sacrifice, and property. Every calculator uses 2025/26 HMRC rates and is self-contained — no login, no data collection, no paywalls.
+
+## Tool Index
+
+### Income Tax & Self Assessment
+- Self Assessment Tax Calculator 2025/26: /self-assessment-calculator.html
+- Dividend Tax Calculator 2025/26: /dividend-tax-calculator.html
+- Capital Gains Tax Calculator 2025/26: /cgt-calculator.html
+- Marriage Allowance Calculator: /marriage-allowance-calculator.html
+- Tax Code Checker UK 2025/26: /tax-code-checker.html
+
+### Business & Freelance
+- IR35 Checker: /ir35-checker.html
+- Salary vs Dividends Calculator 2025/26: /salary-vs-dividends-calculator.html
+- VAT Threshold Calculator: /vat-threshold-calculator.html
+- Employer Cost Calculator UK 2025/26: /employer-cost-calculator.html
+
+### Salary Sacrifice & Benefits
+- Salary Sacrifice Calculator 2025/26: /salary-sacrifice-calculator.html
+- Student Loan Repayment Calculator: /student-loan-calculator.html
+- Pension Tax Relief Calculator: /pension-calculator.html
+
+### Property & Capital
+- Inheritance Tax Calculator UK: /inheritance-tax-calculator.html
+- Rental Income Tax Calculator: /rental-income-tax-calculator.html
+
+## Supporting Pages
+- Homepage (all tools): /index.html
+- About: /about.html
+- Privacy Policy: /privacy.html
+- Contact: /contact.html
+
+## Rate Update Policy
+All tax rates updated each April following the new UK tax year.
