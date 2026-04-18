@@ -6,218 +6,100 @@
 
 ## 1. Project Overview
 
-Tax Toolkit UK is a free UK tax calculator platform. 14 tools across 4 categories, each on a dedicated HTML page, monetised via Google AdSense. It is the second site in a portfolio of AdSense-monetised UK tool sites, built after ClearCost UK.
+Tax Toolkit UK is a free UK tax calculator platform. 14 tools across 4 categories, monetised via Google AdSense. Second site in the portfolio.
 
-**Goal:** Generate passive ad revenue as part of the wider passive income system (trading account -> ISA -> Ltd company incorporation).
-
-**Tech stack:** Self-contained static HTML files. No framework. No build step. No external JS dependencies. Shared design system via `styles.css` and `utils.js`. Deployed via GitHub -> Cloudflare Pages.
+**Tech stack:** Self-contained static HTML files. No framework. No build step. Deployed via GitHub -> Cloudflare Pages.
 
 **Repository:** `https://github.com/jwfalc-coder/tax-toolkit-uk` (private)
 
-**Live URL:** https://taxtoolkit.uk — deployed via Cloudflare Pages (April 2026). DNS managed by Cloudflare.
+**Live URL:** https://taxtoolkit.uk -- deployed via Cloudflare Pages (April 2026). DNS managed by Cloudflare.
 
 ---
 
-## 2. Repository Structure
+## 2. Current Status (as of 18 April 2026)
 
-```
-tax-toolkit-uk/
-├── index.html                              # Homepage (reference file)
-├── about.html
-├── privacy.html
-├── contact.html
-├── 404.html
-├── styles.css                              # Global shared styles and design system
-├── utils.js                                # Shared JS utilities, tax helpers, formatters
-├── _template.html                          # Blank page scaffold for new tool pages
-├── _redirects                              # Cloudflare/Netlify redirects
-├── robots.txt
-├── sitemap.xml
-│
-├── self-assessment-calculator.html         # Income Tax & Self Assessment (5 tools)
-├── dividend-tax-calculator.html
-├── cgt-calculator.html
-├── marriage-allowance-calculator.html
-├── tax-code-checker.html
-│
-├── ir35-checker.html                       # Business & Freelance (4 tools)
-├── salary-vs-dividends-calculator.html
-├── vat-threshold-calculator.html
-├── employer-cost-calculator.html
-│
-├── salary-sacrifice-calculator.html        # Salary Sacrifice & Benefits (3 tools)
-├── student-loan-calculator.html
-├── pension-calculator.html
-│
-├── inheritance-tax-calculator.html         # Property & Capital (2 tools)
-└── rental-income-tax-calculator.html
-```
-
-**Total: 22 files. 14 tool pages + 4 supporting pages + 4 config/asset files.**
+- All 18 HTML pages live at taxtoolkit.uk
+- Cloudflare Pages auto-deploys on push to main
+- Google Analytics 4 (G-NDJM8GSFTM) installed -- gated behind custom cookie consent banner (key: tt-cookie)
+- Custom cookie consent banner active -- Accept/Decline, gates GA
+- Formspree contact form live (mjgjwgwg)
+- Email routing: hello@taxtoolkit.uk -> personal inbox via Cloudflare
+- AdSense: NOT YET APPLIED -- pending ClearCost approval first
+- Search Console: submit sitemap https://taxtoolkit.uk/sitemap.xml once property verified
 
 ---
 
 ## 3. Design System (DO NOT MODIFY WITHOUT GOOD REASON)
 
-Deliberately different aesthetic from ClearCost UK. Where ClearCost is dark fintech (navy/charcoal), Tax Toolkit is light editorial (warm off-white, deep indigo). The two sites must feel like different products.
-
-### Colour tokens
+Light editorial aesthetic -- warm off-white, deep indigo. Deliberately different from ClearCost.
 
 ```css
---bg-base:          #f4f3ef    /* warm off-white page background */
---bg-surface:       #ffffff    /* card and widget backgrounds */
---accent:           #3730a3    /* deep indigo - primary accent */
---accent-hover:     #312e81
---accent-light:     #eef2ff    /* tint for backgrounds and badges */
---text-primary:     #111827
---text-secondary:   #374151
---text-muted:       #6b7280
---success:          #15803d
---error:            #b91c1c
---warning:          #b45309
---border:           #e5e7eb
+--bg-base:    #f4f3ef   /* warm off-white */
+--bg-surface: #ffffff
+--accent:     #3730a3   /* deep indigo */
+--text-primary: #111827
+--text-secondary: #374151
+--text-muted: #6b7280
+--border:     #e5e7eb
 ```
 
-No dark mode. Light only. This is intentional and must not be changed.
+No dark mode. Light only. This is intentional.
 
-### Typography
-- Body: Plus Jakarta Sans (Google Fonts)
-- Numbers/outputs: JetBrains Mono
-- Loaded via `<link rel="preconnect">` + `<link rel="stylesheet">` in `<head>` on every page
+**Typography:** Plus Jakarta Sans + JetBrains Mono (loaded via non-blocking link tags with preconnect -- @import removed from styles.css)
 
-### AI design tells — PROHIBITED
-- Gradient text on headings
-- Gradient logo marks
-- Card/panel gradient overlays
-- Emoji as UI icons (SVG only)
+**AI design tells -- PROHIBITED:** gradient text, gradient logos, emoji icons, em dashes
 
 ---
 
-## 4. What Is Complete
+## 4. SEO Status (completed April 2026)
 
-### Infrastructure
-- [x] `styles.css`, `utils.js`, `_template.html`
-- [x] `index.html`, `about.html`, `privacy.html`, `contact.html`, `404.html`
-- [x] `robots.txt`, `sitemap.xml`, `_redirects`, `.nojekyll`
-
-### SEO (completed April 2026)
-- [x] Canonical tags on all pages (https://taxtoolkit.uk/...)
-- [x] OG tags on all pages
-- [x] Meta descriptions trimmed to under 160 chars
-- [x] Em dashes removed from all pages
-- [x] WebSite schema on index.html
-- [x] WebPage schema on supporting pages
-- [x] WebApplication schema on all tool pages
-- [x] Domain set to taxtoolkit.uk throughout (sitemap, robots.txt, canonicals)
-
-### All 14 Tool Pages Built
-
-**Income Tax & Self Assessment (5)**
-- `self-assessment-calculator.html` — all income types, employee NI, Class 4 NI, personal allowance taper, PAYE deduction, payments on account, Scotland toggle
-- `dividend-tax-calculator.html` — £500 allowance, all three bands, salary stacking
-- `cgt-calculator.html` — shares/property/other, £3,000 exempt amount, 18%/24% post-Oct 2024 rates
-- `marriage-allowance-calculator.html` — eligibility check, £1,257 transfer, backdated claim table (4 years)
-- `tax-code-checker.html` — full code parser (L/M/N/T/K/S/C/BR/D0/D1/NT/0T/W1/M1)
-
-**Business & Freelance (4)**
-- `ir35-checker.html` — 8-question questionnaire, weighted scoring, outside/inside/borderline verdict
-- `salary-vs-dividends-calculator.html` — three strategy comparison, CT marginal relief, employer NI
-- `vat-threshold-calculator.html` — rolling 12-month calculation, Flat Rate Scheme comparison
-- `employer-cost-calculator.html` — 15% employer NI from April 2025, Employment Allowance
-
-**Salary Sacrifice & Benefits (3)**
-- `salary-sacrifice-calculator.html` — pension/EV/cycle/childcare, tax + NI savings
-- `student-loan-calculator.html` — all five plans with 2025/26 thresholds, year-by-year simulation
-- `pension-calculator.html` — three contribution methods, annual allowance check, compound growth
-
-**Property & Capital (2)**
-- `inheritance-tax-calculator.html` — nil-rate band, RNRB, 7-year gifts, spouse exemption
-- `rental-income-tax-calculator.html` — Section 24 rules, marginal rate, Scotland toggle
-
----
-
-## 5. What Still Needs Doing
-
-### Before AdSense application
-- [ ] Cookie consent banner (needs GA4 measurement ID + AdSense publisher ID)
-- [ ] GA4 tracking script on all pages (gated behind consent)
-- [ ] `ads.txt` in root (needs AdSense publisher ID)
-- [ ] Formspree contact form endpoint (replace placeholder in contact.html)
-- [ ] Privacy policy update (once AdSense publisher ID confirmed)
-
-### Content
+- [x] Canonical tags -- all 18 pages (https://taxtoolkit.uk/...)
+- [x] OG tags -- all pages
+- [x] Meta descriptions trimmed
+- [x] Em dashes removed
 - [x] FAQPage schema -- all 14 tool pages
 - [x] BreadcrumbList schema -- all 14 tool pages
-- [x] `llms.txt` file in root
-
-### Performance
-- [ ] PageSpeed Insights audit after DNS propagation
+- [x] WebSite/WebPage/WebApplication schema
+- [x] sitemap.xml -- lastmod 2026-04-17
+- [x] robots.txt -- clean
+- [x] llms.txt
+- [x] Google Fonts render blocking fixed
 
 ---
 
-## 6. Deployment
+## 5. Tax Year Rates (2026/27 -- updated April 2026)
 
-### Cloudflare Pages (live April 2026)
-- Repo: `jwfalc-coder/tax-toolkit-uk` connected to Cloudflare Pages
-- Build command: `exit 0`
-- Build output directory: root `/`
-- Custom domain: `taxtoolkit.uk` - DNS managed by Cloudflare
-- Auto-deploys on every push to `main`
+- Dividend tax: 10.75% basic, 35.75% higher, 39.35% additional
+- Student loan Plan 1: £26,900 | Plan 2: £29,385 | Plan 4: £33,795 | Plan 5: £25,000 (first repayments)
+- All income tax bands, NI, personal allowance: unchanged from 2025/26
+- All year label references updated to 2026/27
+
+---
+
+## 6. What Still Needs Doing
+
+- [ ] AdSense application -- pending ClearCost approval first
+- [ ] ads.txt -- add once publisher ID issued
+- [ ] Privacy policy update -- update once AdSense approved
+- [ ] Replace cookie banner with Google CMP once AdSense approved
+- [ ] FAQPage schema -- already added to all 14 tool pages
+- [ ] BreadcrumbList schema -- already added
+
+---
+
+## 7. Deployment
 
 ```
 Edit -> git commit -> git push origin main -> Cloudflare auto-deploys
 ```
 
----
-
-## 7. File Naming Conventions
-
-- Tool pages: `[descriptor]-calculator.html` or `[descriptor]-checker.html` (kebab-case)
-- Supporting pages: `about.html`, `privacy.html`, `contact.html`, `404.html`
-- No spaces. No uppercase. No underscores.
+Build command: `exit 0` | Output directory: root `/`
 
 ---
 
-## 8. Modifying Existing Pages
+## 8. Annual Rate Updates (each April)
 
-Use Python `open()`/`write()` for all HTML edits. Never shell heredocs.
-
-```python
-with open('filename.html', 'r') as f: src = f.read()
-new_src = src.replace('unique_string_to_find', 'replacement_string')
-with open('filename.html', 'w') as f: f.write(new_src)
-```
-
-Sanity checks before every push:
-```python
-import re
-with open('filename.html') as f: src = f.read()
-assert '\u2014' not in src, 'Em dash found'
-assert 'lorem ipsum' not in src.lower(), 'Lorem ipsum found'
-assert 'TODO' not in src, 'TODO found'
-```
-
----
-
-## 9. Known Issues & Placeholders
-
-| Item | Status |
-|------|--------|
-| Cookie consent banner | Pending - needs GA + AdSense IDs |
-| GA4 tracking script | Pending - needs measurement ID |
-| `ads.txt` | Pending - needs AdSense publisher ID |
-| Formspree contact form | Pending - needs Formspree account |
-| Privacy policy update | Pending - update once AdSense approved |
-| FAQPage schema | Not yet added - high SEO priority |
-| BreadcrumbList schema | Not yet added |
-| `llms.txt` | Not yet created |
-
----
-
-## 10. Annual Rate Updates (each April)
-
-Update all rate constants in `utils.js` first, then hardcoded values in individual pages:
-
+Update in utils.js first, then individual pages:
 - Income tax bands and NI thresholds
 - Dividend allowance and rates
 - CGT exempt amount and rates
@@ -226,26 +108,12 @@ Update all rate constants in `utils.js` first, then hardcoded values in individu
 - VAT registration threshold
 - Pension annual allowance
 - Employment Allowance
-- Auto-enrolment qualifying earnings band
 - Marriage Allowance transfer amount
-
-**Sources:** gov.uk, hmrc.gov.uk, thepensionsregulator.gov.uk
+- All year label references
 
 ---
 
-## 11. Rate Sources
+## 9. File Writing Conventions
 
-| Data type | Source |
-|-----------|--------|
-| Income tax / NI rates | https://www.gov.uk/income-tax-rates |
-| Scottish income tax | https://www.gov.uk/scottish-income-tax |
-| Dividend tax | https://www.gov.uk/tax-on-dividends |
-| Capital Gains Tax | https://www.gov.uk/capital-gains-tax/rates |
-| Corporation tax | https://www.gov.uk/corporation-tax-rates |
-| Student loan thresholds | https://www.gov.uk/repaying-your-student-loan/what-you-pay |
-| VAT threshold | https://www.gov.uk/vat-registration/when-to-register |
-| Inheritance tax | https://www.gov.uk/inheritance-tax |
-| Pension annual allowance | https://www.gov.uk/tax-on-your-private-pension/annual-allowance |
-| Employment Allowance | https://www.gov.uk/claim-employment-allowance |
-| Auto-enrolment | https://www.thepensionsregulator.gov.uk/en/employers |
-| Marriage Allowance | https://www.gov.uk/marriage-allowance |
+Use Python `open()`/`write()` -- never shell heredocs.
+Scan before every push: no em dashes, no lorem ipsum, no TODO, no YOURDOMAIN.
